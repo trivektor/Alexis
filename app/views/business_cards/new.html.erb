@@ -1,0 +1,25 @@
+<%
+@title_for_layout = 'Create Business Card'
+@body_id = 'new_business_card'
+%>
+
+<h1><%= @title_for_layout %></h1>
+
+<%= form_for @business_card do |business_card_form| %>
+  
+  <% if @business_card.errors.count > 0 %>
+    <%= render :partial => 'shared/form_errors', :locals => {:f => business_card_form} %>
+  <% end %>
+  
+  <div id="business_card_form" class="black_region rounded_corners">  
+    <div class="form_row">
+      <label>Choose a url for your card</label>
+      <%= business_card_form.text_field :url, :class => :textbox %>
+    </div>
+    <div class="form_row">
+      <label>Pick a title for your card</label>
+      <%= business_card_form.text_field :title, :class => :textbox %>
+    </div>
+    <%= business_card_form.submit %>
+  </div>
+<% end %>

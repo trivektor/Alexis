@@ -1,0 +1,17 @@
+<%
+@title_for_layout = 'Home'
+@body_id = 'home'
+%>
+
+<div class="session_form">
+  <%= image_tag 'signupRibbon.png', :id => :signup_ribbon %>
+  
+  <div style="text-align:center; margin:20px 0">
+    <%= image_tag 'introText.png' %>
+  </div>
+  
+  <div style="text-align:center">
+    <%= link_to (image_tag 'getStartedBtn.png', :alt => 'Get started'), signup_url %>
+  </div>
+  
+</div>

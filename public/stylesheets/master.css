@@ -1,0 +1,56 @@
+@font-face {font-family:Junction;src:url(Junction.ttf);}
+
+* {margin:0; padding:0;}
+
+h1, h2, h3 {margin-bottom:20px; font-weight:normal}
+
+body {font-family:Junction; font-size:12px; color:#444;}
+
+a {outline:none; text-decoration:none}
+
+img {border:0;}
+
+label {font-family:Junction; display:block; margin-bottom:5px; color:#fff;}
+
+.clearfloat {clear:both;}
+
+.textbox {background:#f8f3dc; height:40px; padding:3px; font-size:23px; border:1px solid #e4d598; color:#555; -moz-box-shadow:0 3px 0 #f2ebc9 inset;}
+
+.session_form {margin:60px auto; width:400px; padding:0 53px 50px; background:#fff; -moz-box-shadow:0 1px 2px #999; -moz-border-radius:5px;}
+.session_form_inner {margin-top:30px; background:#efe4ba; padding:32px; -moz-box-shadow:0 0 1px #444 inset; -moz-border-radius:5px;}
+.session_form .textbox {width:318px}
+.session_form label {font-size:14px; color:#444;}
+.form_row {margin-bottom:35px;}
+
+.rounded_corners {-moz-border-radius:5px; -webkit-border-radius:5px;}
+
+.result_success {background:#dcf3b8; padding:10px; color:#83ab44; margin:20px 0; border:1px solid #83ab44;}
+.result_error li {margin:10px 0; list-style:none; color:#b00000; font-size:12px;}
+
+.black_region {background:url(../images/blackTransparent.png) repeat; padding:20px}
+.black_region .header {color:#fff;}
+.white_box {padding:10px 13px; overflow:hidden; background:#fff;}
+.white_box .left {float:left; width:120px;}
+.white_box .options {float:right; width:100px;}
+.white_box a {color:#444;}
+.white_box .action_link {float:right; margin-left:10px; display:block; width:16px; height:16px; text-indent:-9999px;}
+.white_box .edit {background:url(../images/pencil_16.png) no-repeat}
+.white_box .delete {background:url(../images/delete_16.png) no-repeat}
+.white_box .viewlive {background:url(../images/search_16.png) no-repeat}
+
+.cta_link {}
+
+/* Signup */
+#home, #signup, #login {background:url(../images/noise.jpg) repeat;}
+#signup_ribbon {position:relative; left:-149px; top:0}
+
+/* Home */
+
+/* Dashboard */
+#taskbar {background:#393939; padding:11px; }
+#alexis {float:left;}
+#taskbar_nav {float:right; color:#fff !important; margin-top:5px; font-size:11px;}
+#taskbar_nav * {margin:0 5px;}
+#taskbar_nav a {color:#fff;}
+#stage {position:absolute; top:43px; left:0; right:0; bottom:0; padding:30px 11px; background:url(../images/carot.png) repeat}
+#business_card_form {width:500px;}

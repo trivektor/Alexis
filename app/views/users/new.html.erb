@@ -1,0 +1,39 @@
+<% 
+@title_for_layout = 'Signup'
+@body_id = 'signup'
+%>
+
+<div class="session_form">
+  
+  <%= image_tag "signupRibbon.png", :id => :signup_ribbon %>
+  
+  <%= form_for @user do |user_form| %>
+  
+    <% if @user.errors.count > 0 %>
+      <%= render :partial => 'shared/form_errors', :locals => {:f => user_form} %>
+    <% end %>
+  
+    <div class="session_form_inner">
+      <div class="form_row">
+        <%= user_form.label :first_name %>
+        <%= user_form.text_field :first_name, :class => :textbox %>
+      </div>
+      <div class="form_row">
+        <%= user_form.label :last_name %>
+        <%= user_form.text_field :last_name, :class => :textbox %>
+      </div>
+      <div class="form_row">
+        <%= user_form.label :email %>
+        <%= user_form.text_field :email, :class => :textbox %>
+      </div>
+      <div class="form_row">
+        <%= user_form.label :password %>
+        <%= user_form.password_field :password, :class => :textbox %>
+      </div>
+      <div style="text-align:center; margin-top:40px">
+        <input type="image" src="/images/signmeup.png" />
+      </div>
+    </div>
+  <% end %>
+  
+</div>

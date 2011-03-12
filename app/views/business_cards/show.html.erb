@@ -1,0 +1,28 @@
+<%
+@title_for_layout = @business_card.title
+@body_id = 'show_business_card'
+@info = @business_card.business_card_information
+%>
+
+<%= render :partial => 'shared/taskbar' %>
+
+<div id="card_wrapper">
+  <div id="card_top_shadow">
+    <div id="card_background_wrapper">
+      <div id="card">
+        <div id="card_info">
+          <h2 id="name"><%= @info.name %></h2>
+          <div id="title"><%= @info.title %></div>
+          <ul id="contact_info">
+            <%= "<li>#{obfuscate_email(@info.email)}</li>".html_safe unless @info.email.blank? %>
+            <%= "<li><a href=\"#{@info.website}\" target=\"_blank\">#{@info.website}</a></li>".html_safe unless @info.website.blank? %>
+            <%= "<li>#{@info.phone_number}</li>".html_safe unless @info.phone_number.blank? %>
+            <%= "<li>#{@info.fax_number}</li>".html_safe unless @info.fax_number.blank? %>
+            <%= "<li>#{@info.address}</li>".html_safe unless @info.address.blank? %>
+          </ul>
+        </div>
+        <div class="clearfloat"></div>
+      </div>
+    </div>
+  </div>
+</div>

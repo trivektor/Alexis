@@ -1,0 +1,28 @@
+@font-face {font-family:Junction;src:url(Junction.ttf);}
+
+* {margin:0; padding:0;}
+
+body {background:url(../images/noise.jpg) repeat; font-family:junction; font-size:12px;}
+
+a {outline:none; text-decoration:none;}
+
+h1, h2, h3 {font-weight:normal;}
+
+.clearfloat {clear:both;}
+
+#taskbar {background:#393939; padding:11px; }
+#alexis {float:left;}
+#taskbar_nav {float:right; color:#fff !important; margin-top:5px; font-size:11px;}
+#taskbar_nav * {margin:0 5px;}
+#taskbar_nav a {color:#fff;}
+
+#card_wrapper {background:url(../images/cardShadow.png) no-repeat bottom center; padding-bottom:15px; width:505px; margin:10% auto}
+#card_top_shadow {background:url(../images/cardShadow.png) top center; padding-top:5px;}
+#card_background_wrapper {background:#fff; -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow:0 3px 3px #838383; -webkit-box-shadow:0 3px 3px #838383}
+#card {height:300px; -moz-border-radius:5px; -webkit-border-radius:5px}
+
+ul {list-style:none;}
+
+#name {margin-bottom:20px;}
+#title {color:#444; margin:10px 0;}
+#contact_info li {margin:5px 0;}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title_for_layout %> - Alexis</title>
+  <%= stylesheet_link_tag [
+    'master'
+    ] %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body id="<%= @body_id %>">
+
+<%= yield %>
+
+</body>
+</html>

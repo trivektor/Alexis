@@ -1,0 +1,66 @@
+<%
+@title_for_layout = 'Edit business card'
+@body_id = 'edit_business_card'
+%>
+
+<h1><%= @title_for_layout %></h1>
+
+<% form_for @business_card do |business_card_form| %>
+
+  <%= render :partial => 'shared/flash_notice' %>
+  
+  <% if @business_card.errors.count > 0 %>
+    <%= render :partial => 'shared/form_errors', :locals => {:f => business_card_form} %>
+  <% end %>
+    
+  <div class="black_region rounded_corners">
+  
+    <div class="form_row">
+      <%= business_card_form.label :title %>
+      <%= business_card_form.text_field :title, :class => :textbox %>
+    </div>
+  
+    <%= business_card_form.fields_for :business_card_information do |info| %>
+      <div class="form_row">
+        <%= info.label :name %>
+        <%= info.text_field :name, :class => :textbox %>
+      </div>
+  
+      <div class="form_row">
+        <label>Business card title</label>
+        <%= info.text_field :title, :class => :textbox %>
+      </div>
+      
+      <div class="form_row">
+        <%= info.label :email %>
+        <%= info.text_field :email, :class => :textbox %>
+      </div>
+      
+      <div class="form_row">
+        <%= info.label :website %>
+        <%= info.text_field :website, :class => :textbox %>
+      </div>
+      
+      <div class="form_row">
+        <%= info.label :phone_number %>
+        <%= info.text_field :phone_number, :class => :textbox %>
+      </div>
+      
+      <div class="form_row">
+        <%= info.label :fax_number %>
+        <%= info.text_field :fax_number, :class => :textbox %>
+      </div>
+      
+      <div class="form_row">
+        <%= info.label :address %>
+        <%= info.text_field :address, :class => :textbox %>
+      </div>
+      
+    <% end %>
+    
+    <%= business_card_form.submit %>
+    
+  </div>
+  
+<% end %>
+    

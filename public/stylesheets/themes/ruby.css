@@ -1,0 +1,8 @@
+#card_background_wrapper {padding:0 30px 0 30px;}
+#card {background:#fff url(../../images/ruby/ruby.png) no-repeat right center;}
+#card_info {padding-top:50px; width:280px;}
+#name {font-family:Junction; font-size:22px; color:#d00206;}
+#title {font-style:oblique; margin-bottom:25px; font-size:14px;}
+
+#contact_info li {color:#555; margin:10px 0;}
+a {color:#555;}

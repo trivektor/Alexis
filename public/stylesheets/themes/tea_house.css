@@ -1,0 +1,8 @@
+#card_background_wrapper {padding:0 20px 20px 0}
+#card {background:#fff url(../../images/tea_house/teacup.png) no-repeat left 15px}
+#card_info {float:right; padding-top:75px; width:326px}
+#name {font-family:Junction; font-size:22px; color:#88ae21;}
+#title {font-style:oblique; margin-bottom:25px; font-size:14px; color:#555}
+
+#contact_info li {color:#555; margin:10px 0}
+a {color:#555}

@@ -1,0 +1,8 @@
+#card_background_wrapper {padding:0 20px 20px 30px;}
+#card {background:#fff url(../../images/paint_brush/paint_brush.png) no-repeat right bottom}
+#card_info {padding-top:40px; width:280px;}
+#name {font-family:Junction; font-size:22px; color:#d00206;}
+#title {font-style:oblique; margin-bottom:25px; font-size:14px; color:#febb29;}
+
+#contact_info li {color:#0097c2; margin:10px 0;}
+a {color:#0097c2;}
