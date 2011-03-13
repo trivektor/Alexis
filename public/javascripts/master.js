@@ -30,4 +30,12 @@ $(function() {
 	
 	Theme.init();
 	
+	$(".tooltip").tooltip({
+		showURL: false,
+		track: true,
+		delay: 0,
+		left: -40,
+		top: 20
+	})
+	
 })

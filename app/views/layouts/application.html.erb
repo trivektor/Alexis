@@ -3,10 +3,12 @@
 <head>
   <title><%= @title_for_layout %> - Alexis</title>
   <%= stylesheet_link_tag [
-    'master'
+    'master',
+    'jquery.tooltip'
     ] %>
   <%= javascript_include_tag [
     'jquery',
+    'jquery.tooltip',
     'master'
     ] %>
   <%= csrf_meta_tag %>

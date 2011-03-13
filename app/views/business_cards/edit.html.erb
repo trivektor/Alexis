@@ -5,8 +5,8 @@
 
 <h1 style="float:left"><%= @title_for_layout %></h1>
 
-<div class="options" style="float:right">
-  <a id="select_theme">Pick a theme</a>
+<div class="options" style="float:right; text-align:right">
+  <a id="select_theme" class="green_btn">Pick a theme</a>
 </div>
 
 <div class="clearfloat"></div>
@@ -22,56 +22,57 @@
   <div class="vanilla_region">
   
     <div class="white_region">
-    <div class="beige_region">
-    
-      <div class="form_row">
-        <%= business_card_form.label :title %>
-        <%= business_card_form.text_field :title, :class => :textbox %>
-      </div>
-  
-      <%= business_card_form.fields_for :business_card_information do |info| %>
+      <div class="beige_region">
     
         <div class="form_row">
-          <%= info.label :name %>
-          <%= info.text_field :name, :class => :textbox %>
+          <%= business_card_form.label :title %>
+          <%= business_card_form.text_field :title, :class => :textbox %>
         </div>
   
-        <div class="form_row">
-          <label>Business card title</label>
-          <%= info.text_field :title, :class => :textbox %>
-        </div>
+        <%= business_card_form.fields_for :business_card_information do |info| %>
+    
+          <div class="form_row">
+            <%= info.label :name %>
+            <%= info.text_field :name, :class => :textbox %>
+          </div>
+  
+          <div class="form_row">
+            <label>Business card title</label>
+            <%= info.text_field :title, :class => :textbox %>
+          </div>
       
-        <div class="form_row">
-          <%= info.label :email %>
-          <%= info.text_field :email, :class => :textbox %>
-        </div>
+          <div class="form_row">
+            <%= info.label :email %>
+            <%= info.text_field :email, :class => :textbox %>
+          </div>
       
-        <div class="form_row">
-          <%= info.label :website %>
-          <%= info.url_field :website, :class => :textbox %>
-        </div>
+          <div class="form_row">
+            <%= info.label :website %>
+            <%= info.url_field :website, :class => :textbox %>
+          </div>
       
-        <div class="form_row">
-          <%= info.label :phone_number %>
-          <%= info.text_field :phone_number, :class => :textbox %>
-        </div>
+          <div class="form_row">
+            <%= info.label :phone_number %>
+            <%= info.text_field :phone_number, :class => :textbox %>
+          </div>
       
-        <div class="form_row">
-          <%= info.label :fax_number %>
-          <%= info.text_field :fax_number, :class => :textbox %>
-        </div>
+          <div class="form_row">
+            <%= info.label :fax_number %>
+            <%= info.text_field :fax_number, :class => :textbox %>
+          </div>
       
-        <div class="form_row">
-          <%= info.label :address %>
-          <%= info.text_field :address, :class => :textbox %>
-        </div>
+          <div class="form_row">
+            <%= info.label :address %>
+            <%= info.text_field :address, :class => :textbox %>
+          </div>
+          
+          <%= business_card_form.submit 'Updated', :class => :red_btn %>
         
-    </div>
+      </div>
+      
     </div>
       
     <% end %>
-    
-    <input type="submit" value="Update" class="red_btn" />
     
   </div>
   
