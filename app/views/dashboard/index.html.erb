@@ -17,7 +17,7 @@
         <div class="options">
           <a class="delete" href="/business_cards/<%= business_card.id %>/delete" title="Delete"></a>
           <%= link_to 'Delete', business_card, :method => :delete, :confirm => 'Are you sure? This action cannot be undone', :class => 'delete action_link' %>
-          <a href="/<%= business_card.url %>" class="viewlive action_link"><%= business_card.url %></a>
+          <a target="_blank" href="/<%= business_card.url %>" class="viewlive action_link"><%= business_card.url %></a>
           <%#= link_to 'Edit', business_card, :method => :edit, :class => 'edit action_link' %>
           <%= link_to 'Edit', edit_business_card_path(business_card), :class => 'edit action_link' %>
         </div>

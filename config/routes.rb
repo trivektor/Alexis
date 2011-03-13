@@ -9,7 +9,13 @@ Alexis::Application.routes.draw do
     match 'login' => 'user_sessions#new', :as => :login
     match 'logout' => 'user_sessions#destroy', :as => :logout
     
-  resources :business_cards
+  resources :business_cards do
+    
+    member do
+      get :select_theme
+    end
+    
+  end
     
   match '/dashboard' => 'dashboard#index'
   

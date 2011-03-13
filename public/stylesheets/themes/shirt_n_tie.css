@@ -1,0 +1,8 @@
+#card_background_wrapper {padding:0 15px 15px 0}
+#card {background:#fff url(../../images/shirt_n_tie/shirt.png) no-repeat left 35px}
+#card_info {padding-top:60px; width:330px; float:right;}
+#name {font-family:Junction; font-size:22px; color:#7b0001}
+#title {font-style:oblique; margin-bottom:25px; font-size:14px; color:#555}
+
+#contact_info li {color:#555; margin:10px 0; font-style:oblique;}
+a {color:#555}

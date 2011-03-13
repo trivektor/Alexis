@@ -54,9 +54,13 @@ class BusinessCardsController < ApplicationController
   def show
     @business_card = BusinessCard.find_by_url params[:url]
     
-    @theme = Theme.find_by_slug :office_1
+    @theme = Theme.find_by_slug :photographer
     
     render :layout => 'business_card'
+  end
+  
+  def select_theme
+    
   end
   
   private

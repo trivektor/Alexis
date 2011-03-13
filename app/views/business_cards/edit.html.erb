@@ -1,9 +1,15 @@
 <%
-@title_for_layout = 'Edit business card'
+@title_for_layout = 'Edit Business Card'
 @body_id = 'edit_business_card'
 %>
 
-<h1><%= @title_for_layout %></h1>
+<h1 style="float:left"><%= @title_for_layout %></h1>
+
+<div class="options" style="float:right">
+  <a id="select_theme">Pick a theme</a>
+</div>
+
+<div class="clearfloat"></div>
 
 <% form_for @business_card do |business_card_form| %>
 
@@ -13,54 +19,69 @@
     <%= render :partial => 'shared/form_errors', :locals => {:f => business_card_form} %>
   <% end %>
     
-  <div class="black_region rounded_corners">
+  <div class="blue_region rounded_corners">
   
-    <div class="form_row">
+    <div class="form_row white_region">
       <%= business_card_form.label :title %>
       <%= business_card_form.text_field :title, :class => :textbox %>
     </div>
   
     <%= business_card_form.fields_for :business_card_information do |info| %>
-      <div class="form_row">
+    
+      <div class="form_row white_region">
         <%= info.label :name %>
         <%= info.text_field :name, :class => :textbox %>
       </div>
   
-      <div class="form_row">
+      <div class="form_row white_region">
         <label>Business card title</label>
         <%= info.text_field :title, :class => :textbox %>
       </div>
       
-      <div class="form_row">
+      <div class="form_row white_region">
         <%= info.label :email %>
         <%= info.text_field :email, :class => :textbox %>
       </div>
       
-      <div class="form_row">
+      <div class="form_row white_region">
         <%= info.label :website %>
-        <%= info.text_field :website, :class => :textbox %>
+        <%= info.url_field :website, :class => :textbox %>
       </div>
       
-      <div class="form_row">
+      <div class="form_row white_region">
         <%= info.label :phone_number %>
         <%= info.text_field :phone_number, :class => :textbox %>
       </div>
       
-      <div class="form_row">
+      <div class="form_row white_region">
         <%= info.label :fax_number %>
         <%= info.text_field :fax_number, :class => :textbox %>
       </div>
       
-      <div class="form_row">
+      <div class="form_row white_region">
         <%= info.label :address %>
         <%= info.text_field :address, :class => :textbox %>
       </div>
       
     <% end %>
     
-    <%= business_card_form.submit %>
+    <input type="submit" value="Update" class="black_btn" />
     
   </div>
   
 <% end %>
-    
+
+<div id="theme_gallery" style="display:none">
+  <div id="theme_gallery_inner">
+    <%= image_tag 'themes_gallery/lamborghini.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/samurai.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/office_1.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/paint_brush.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/photographer.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/ruby.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/shirt_n_tie.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/tea_house.png', :class => 'theme_preview' %>
+    <%= image_tag 'themes_gallery/paper_crane.png', :class => 'theme_preview' %>
+    <%= image_tag 'closeOverlay.png', :class => :close_overlay, :id => :close_theme_gallery %>
+  </div>
+</div>

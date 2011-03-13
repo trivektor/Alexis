@@ -1,0 +1,8 @@
+#card_background_wrapper {padding:0 0 20px 25px}
+#card {background:#fff url(../../images/photographer/camera.png) no-repeat right 60px}
+#card_info {padding-top:61px; width:326px}
+#name {font-family:Junction; font-size:22px}
+#title {font-style:oblique; margin-bottom:25px; font-size:14px; color:#c6847d}
+
+#contact_info li {color:#555; margin:10px 0; font-style:oblique;}
+a {color:#555}

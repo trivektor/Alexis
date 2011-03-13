@@ -24,16 +24,18 @@
       </div>
       <div class="form_row">
         <%= user_form.label :email %>
-        <%= user_form.text_field :email, :class => :textbox %>
+        <%= user_form.text_field :email, :class => :textbox, :autocomplete => :off %>
       </div>
       <div class="form_row">
         <%= user_form.label :password %>
-        <%= user_form.password_field :password, :class => :textbox %>
+        <%= user_form.password_field :password, :class => :textbox, :autocomplete => :off %>
       </div>
       <div style="text-align:center; margin-top:40px">
         <input type="image" src="/images/signmeup.png" />
       </div>
     </div>
   <% end %>
+  
+  <div style="margin-top:20px;text-align:center">Already have an account? <%= link_to 'Login', login_url %></div>
   
 </div>
