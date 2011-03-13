@@ -19,53 +19,59 @@
     <%= render :partial => 'shared/form_errors', :locals => {:f => business_card_form} %>
   <% end %>
     
-  <div class="blue_region rounded_corners">
+  <div class="vanilla_region">
   
-    <div class="form_row white_region">
-      <%= business_card_form.label :title %>
-      <%= business_card_form.text_field :title, :class => :textbox %>
-    </div>
-  
-    <%= business_card_form.fields_for :business_card_information do |info| %>
+    <div class="white_region">
+    <div class="beige_region">
     
-      <div class="form_row white_region">
-        <%= info.label :name %>
-        <%= info.text_field :name, :class => :textbox %>
+      <div class="form_row">
+        <%= business_card_form.label :title %>
+        <%= business_card_form.text_field :title, :class => :textbox %>
       </div>
   
-      <div class="form_row white_region">
-        <label>Business card title</label>
-        <%= info.text_field :title, :class => :textbox %>
-      </div>
+      <%= business_card_form.fields_for :business_card_information do |info| %>
+    
+        <div class="form_row">
+          <%= info.label :name %>
+          <%= info.text_field :name, :class => :textbox %>
+        </div>
+  
+        <div class="form_row">
+          <label>Business card title</label>
+          <%= info.text_field :title, :class => :textbox %>
+        </div>
       
-      <div class="form_row white_region">
-        <%= info.label :email %>
-        <%= info.text_field :email, :class => :textbox %>
-      </div>
+        <div class="form_row">
+          <%= info.label :email %>
+          <%= info.text_field :email, :class => :textbox %>
+        </div>
       
-      <div class="form_row white_region">
-        <%= info.label :website %>
-        <%= info.url_field :website, :class => :textbox %>
-      </div>
+        <div class="form_row">
+          <%= info.label :website %>
+          <%= info.url_field :website, :class => :textbox %>
+        </div>
       
-      <div class="form_row white_region">
-        <%= info.label :phone_number %>
-        <%= info.text_field :phone_number, :class => :textbox %>
-      </div>
+        <div class="form_row">
+          <%= info.label :phone_number %>
+          <%= info.text_field :phone_number, :class => :textbox %>
+        </div>
       
-      <div class="form_row white_region">
-        <%= info.label :fax_number %>
-        <%= info.text_field :fax_number, :class => :textbox %>
-      </div>
+        <div class="form_row">
+          <%= info.label :fax_number %>
+          <%= info.text_field :fax_number, :class => :textbox %>
+        </div>
       
-      <div class="form_row white_region">
-        <%= info.label :address %>
-        <%= info.text_field :address, :class => :textbox %>
-      </div>
+        <div class="form_row">
+          <%= info.label :address %>
+          <%= info.text_field :address, :class => :textbox %>
+        </div>
+        
+    </div>
+    </div>
       
     <% end %>
     
-    <input type="submit" value="Update" class="black_btn" />
+    <input type="submit" value="Update" class="red_btn" />
     
   </div>
   

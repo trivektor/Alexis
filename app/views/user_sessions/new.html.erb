@@ -5,7 +5,9 @@
 
 <div class="session_form">
   
-  <%= image_tag "signupRibbon.png", :id => :signup_ribbon %>
+  <a href="/">
+    <%= image_tag "loginRibbon.png", :id => :signup_ribbon %>
+  </a>
   
   <%= form_for @user_session do |user_session_form| %>
   
@@ -13,17 +15,19 @@
       <%= render :partial => 'shared/form_errors', :locals => {:f => user_session_form} %>
     <% end %>
   
-    <div class="session_form_inner">
-      <div class="form_row">
-        <%= user_session_form.label :email %>
-        <%= user_session_form.text_field :email, :class => :textbox %>
-      </div>
-      <div class="form_row">
-        <%= user_session_form.label :password %>
-        <%= user_session_form.password_field :password, :class => :textbox %>
-      </div>
-      <div style="text-align:center; margin-top:20px">
-        <input type="image" src="/images/openSesame.png" />
+    <div class="white_region">
+      <div class="beige_region">
+        <div class="form_row">
+          <%= user_session_form.label :email %>
+          <%= user_session_form.text_field :email, :class => :textbox %>
+        </div>
+        <div class="form_row">
+          <%= user_session_form.label :password %>
+          <%= user_session_form.password_field :password, :class => :textbox %>
+        </div>
+        <div style="text-align:center; margin-top:20px">
+          <input type="image" src="/images/openSesame.png" />
+        </div>
       </div>
     </div>
   <% end %>

@@ -5,7 +5,9 @@
 
 <div class="session_form">
   
-  <%= image_tag "signupRibbon.png", :id => :signup_ribbon %>
+  <a href="/">
+    <%= image_tag "signupRibbon.png", :id => :signup_ribbon %>
+  </a>
   
   <%= form_for @user do |user_form| %>
   
@@ -13,7 +15,8 @@
       <%= render :partial => 'shared/form_errors', :locals => {:f => user_form} %>
     <% end %>
   
-    <div class="session_form_inner">
+    <div class="white_region">
+      <div class="beige_region">
       <div class="form_row">
         <%= user_form.label :first_name %>
         <%= user_form.text_field :first_name, :class => :textbox %>
@@ -32,6 +35,7 @@
       </div>
       <div style="text-align:center; margin-top:40px">
         <input type="image" src="/images/signmeup.png" />
+      </div>
       </div>
     </div>
   <% end %>
