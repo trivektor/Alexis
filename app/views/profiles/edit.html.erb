@@ -1,0 +1,75 @@
+<%
+@title_for_layout = 'Edit Profile'
+@body_id = 'edit_profile'
+%>
+
+<h1><%= @title_for_layout %></h1>
+
+<%= form_for @profile do |profile_form| %>
+
+  <%= render :partial => 'shared/flash_notice' %>
+
+  <div class="vanilla_region">
+  
+    <div class="white_region">
+      <div class="beige_region">
+        
+        <%# image_tag current_user.gravatar_url, :class => :user_image %>
+        
+        <div class="form_row">
+          <%= profile_form.label :first_name %>
+          <%= profile_form.text_field :first_name, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :last_name %>
+          <%= profile_form.text_field :last_name, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :city %>
+          <%= profile_form.text_field :city, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :country %>
+          <%= profile_form.select :country, Carmen::country_names, :selected => @profile.country %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :postal_code %>
+          <%= profile_form.text_field :postal_code, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :state %>
+          <%= profile_form.text_field :state, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :website %>
+          <%= profile_form.text_field :website, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :job_title %>
+          <%= profile_form.text_field :job_title, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :gender %>
+          <%= profile_form.select :gender, {:male => 'male', :female => 'female'}, :selected => @profile.gender %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.check_box :hidden  %>
+          <span>hide my profile</span>
+        </div>
+        
+        <%= profile_form.submit 'Update', :class => 'red_btn' %>
+        
+      </div>
+    </div>
+  
+  </div>
+<% end %>

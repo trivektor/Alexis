@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  include Gravtastic
+  gravtastic :size => 120
+  
   has_one :profile, :dependent => :destroy
   has_many :business_cards, :dependent => :destroy
   

@@ -7,36 +7,36 @@
 
 <div id="mycards" class="vanilla_region">
   
-  <% if @business_cards.count > 0 %>
-    
-    <div class="white_region">
-      <div class="beige_region">
-        <ul id="mycards_list" class="item_list">
-          <% @business_cards.each do |business_card| %>
-            <li class="clearfix">
-              <div class="left">
-                <a class="card_name tooltip" href="/<%= business_card.url %>" title="View this card (in a new tab)"><%= business_card.title %></a>
-              </div>
-              <div class="options">
-                <a class="delete" href="/business_cards/<%= business_card.id %>/delete" title="Delete"></a>
-                <%= link_to 'Delete', business_card, :method => :delete, :confirm => 'Are you sure? This action cannot be undone', :class => 'delete action_link tooltip', :title => 'Delete this card' %>
-                <a target="_blank" href="/<%= business_card.url %>" class="viewlive action_link tooltip" title="View this card"><%= business_card.url %></a>
-                <%= link_to 'Edit', edit_business_card_path(business_card), :class => 'edit action_link tooltip', :title => 'Edit this card' %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-        
-        <%= link_to 'Create new card', new_business_card_path, :class => 'red_btn' %>
-      </div>
-      
-      
-      
-    </div>
+  <div class="white_region">
+    <div class="beige_region">
   
-  <% else %>
-    <span style="color:#fff">You have yet created any cards. </span> 
-    <%= link_to 'Create one now', new_business_card_path, :class => 'cta_link' %>
-  <% end %>
+      <% if @business_cards.count > 0 %>
+    
+    
+            <ul id="mycards_list" class="item_list">
+              <% @business_cards.each do |business_card| %>
+                <li class="clearfix">
+                  <div class="left">
+                    <a class="card_name tooltip" href="/<%= business_card.url %>" title="View this card (in a new tab)"><%= business_card.title %></a>
+                  </div>
+                  <div class="options">
+                    <a class="delete" href="/business_cards/<%= business_card.id %>/delete" title="Delete"></a>
+                    <%= link_to 'Delete', business_card, :method => :delete, :confirm => 'Are you sure? This action cannot be undone', :class => 'delete action_link tooltip', :title => 'Delete this card' %>
+                    <a target="_blank" href="/<%= business_card.url %>" class="viewlive action_link tooltip" title="View this card"><%= business_card.url %></a>
+                    <%= link_to 'Edit', edit_business_card_path(business_card), :class => 'edit action_link tooltip', :title => 'Edit this card' %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+        
+            <%= link_to 'Create new card', new_business_card_path, :class => 'red_btn' %>
+        
+      <% else %>
+        <p style="margin-bottom:10px">You have yet created any cards. </p> 
+        <%= link_to 'Create one now', new_business_card_path, :class => 'red_btn' %>
+      <% end %>
+  
+    </div>
+  </div>
   
 </div>

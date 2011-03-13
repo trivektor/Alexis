@@ -16,6 +16,8 @@ Alexis::Application.routes.draw do
     end
     
   end
+  
+  resources :profiles, :only => [:show, :edit, :update]
     
   match '/dashboard' => 'dashboard#index'
   

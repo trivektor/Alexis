@@ -47,6 +47,8 @@ color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-he
 
 .card_name {color:#111; font-size:16px; margin-top:3px; display:inline-block}
 
+.user_image {-moz-box-shadow:0 2px 5px #444; -webkit-box-shadow:0 2px 5px #444; border:8px solid #FFFFFF}
+
 .red_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #F34217 inset, 0 1px 1px #332300; background: -moz-linear-gradient(center bottom , #690900 0%, #8F0E00 45%, #A41200 46%, #CF1900 100%) repeat scroll 0 0 #C40000;
 border: 1px solid #A1100A; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; margin-top: 10px; padding:10px 15px; text-shadow: 0 -1px 1px #250300;}
 .green_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #4a6405 inset, 0 1px 1px #4a6405; background: -moz-linear-gradient(center bottom , #759817 0%, #739615 39%, #6c881f 60%, #637f19 100%) repeat scroll 0 0 #485d10;
@@ -66,7 +68,7 @@ border: 1px solid #4a6405; color: #FFFFFF; cursor: pointer; display: inline-bloc
 #taskbar {background:#393939; padding:11px 30px}
 #taskbar_divider {background:url(../images/taskbarDivider.png) repeat-x; height:7px; border-bottom:1px solid #919191;}
 #alexis {float:left;}
-#taskbar_nav {float:right; color:#fff !important; margin-top:5px; font-size:11px;}
+#taskbar_nav {float:right; color:#fff !important; margin-top:3px}
 #taskbar_nav * {margin:0 5px;}
 #taskbar_nav a {color:#fff;}
 #stage {padding:30px;}
