@@ -8,7 +8,7 @@ a {outline:none; text-decoration:none; color:#b73a13; cursor:pointer}
 
 img {border:0;}
 
-label {display:block; margin-bottom:9px; color:#5E543E; font-size:20px}
+label {display:block; margin-bottom:7px; font-size:18px}
 
 ul {list-style:none}
 
@@ -17,8 +17,8 @@ ul {list-style:none}
 
 
 /* .textbox {background:#f8f3dc; padding:10px; border:1px solid #e4d598; width:300px; -moz-box-shadow:0 3px 0 #f2ebc9 inset;} */
-.textbox {-moz-border-radius:8px; -moz-box-shadow: 0 3px 3px #706751 inset; background:#D2C8B2; border-color: -moz-use-text-color -moz-use-text-color #FFF8E8; border-style: none none solid; border-width: medium medium 2px;
-color: #453000; font-family: Helvetica,Arial,sans-serif; font-size: 20px; margin: 5px 0 0; padding: 15px; width:440px;}
+.textbox {-moz-border-radius:5px; -moz-box-shadow: 0 3px 3px #706751 inset; background:#D2C8B2; border-color: -moz-use-text-color -moz-use-text-color #FFF8E8; border-style: none none solid; border-width: medium medium 2px;
+color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-height:17px; margin: 5px 0 0; padding: 15px; width:440px;}
 
 .session_form {margin:60px auto; width:400px; padding:0 53px 50px; background:#fff; -moz-box-shadow:0 1px 2px #999; -moz-border-radius:5px;}
 .session_form_inner {margin-top:30px; background:#efe4ba; padding:32px; -moz-box-shadow:0 0 1px #444 inset; -moz-border-radius:5px;}
@@ -47,9 +47,9 @@ color: #453000; font-family: Helvetica,Arial,sans-serif; font-size: 20px; margin
 
 .card_name {color:#111; font-size:16px; margin-top:3px; display:inline-block}
 
-.red_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #F34217 inset, 0 1px 1px #332300; background: -moz-linear-gradient(center bottom , #690900 0%, #8F0E00 49%, #A41200 50%, #CF1900 100%) repeat scroll 0 0 #C40000;
+.red_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #F34217 inset, 0 1px 1px #332300; background: -moz-linear-gradient(center bottom , #690900 0%, #8F0E00 45%, #A41200 46%, #CF1900 100%) repeat scroll 0 0 #C40000;
 border: 1px solid #A1100A; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; margin-top: 10px; padding:10px 15px; text-shadow: 0 -1px 1px #250300;}
-.green_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #4a6405 inset, 0 1px 1px #4a6405; background: -moz-linear-gradient(center bottom , #8ab517 0%, #779d12 49%, #5e7a13 50%, #4d6708 100%) repeat scroll 0 0 #485d10;
+.green_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #4a6405 inset, 0 1px 1px #4a6405; background: -moz-linear-gradient(center bottom , #759817 0%, #739615 39%, #6c881f 60%, #637f19 100%) repeat scroll 0 0 #485d10;
 border: 1px solid #4a6405; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; margin-top: 10px; padding:10px 15px; text-shadow: 0 -1px 1px #250300;}
 
 .close_overlay {position:absolute; top:-12px; right:-12px; cursor:pointer;}
@@ -72,7 +72,7 @@ border: 1px solid #4a6405; color: #FFFFFF; cursor: pointer; display: inline-bloc
 #stage {padding:30px;}
 #mycards_list {margin-bottom:20px}
 
-#theme_gallery {width:800px; background:#fff; padding:10px; -moz-border-radius:5px; -moz-box-shadow:0 6px 46px #444; position:absolute; top:10%; left:50%; margin-left:-410px; z-index:8004;}
+#theme_gallery {width:800px; background:#fff; padding:10px; -moz-border-radius:5px; -moz-box-shadow:0 6px 46px #444; position:absolute; top:15%; left:50%; margin-left:-410px; z-index:8004;}
 #theme_gallery_inner {background:#E4E9D0; padding:20px; text-align:center; height:500px; overflow:auto;}
-#theme_gallery .theme_preview {margin:15px}
+#theme_gallery .theme_preview {margin:15px; -moz-box-shadow:0 1px 1px #555; -webkit-box-shadow:0 1px 1px #555;}
 #select_theme {margin-top:0;}

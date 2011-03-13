@@ -2,6 +2,7 @@
   <%= image_tag 'alexis.png', :alt => 'Alexis', :id => 'alexis' %>
   <div id="taskbar_nav">
     <span>Logged in as <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></span> | 
+    <%#= link_to 'Profile', profile_path(current_user.use) %>
     <%= link_to 'Dashboard', dashboard_path %> | 
     <%= link_to 'Logout', logout_url %>
   </div>

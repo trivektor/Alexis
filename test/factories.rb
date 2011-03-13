@@ -4,6 +4,7 @@ Factory.define :user do |user|
   user.first_name 'First'
   user.last_name 'Last'
   user.email 'test@email.com'
+  user.username 'username'
   user.password 'password'
 end
 

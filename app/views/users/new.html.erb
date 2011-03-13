@@ -26,6 +26,10 @@
         <%= user_form.text_field :last_name, :class => :textbox %>
       </div>
       <div class="form_row">
+        <%= user_form.label :username %>
+        <%= user_form.text_field :username, :class => :textbox %>
+      </div>
+      <div class="form_row">
         <%= user_form.label :email %>
         <%= user_form.text_field :email, :class => :textbox, :autocomplete => :off %>
       </div>
