@@ -80,15 +80,9 @@
 
 <div id="theme_gallery" style="display:none">
   <div id="theme_gallery_inner">
-    <%= image_tag 'themes_gallery/lamborghini.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/samurai.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/office_1.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/paint_brush.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/photographer.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/ruby.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/shirt_n_tie.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/tea_house.png', :class => 'theme_preview' %>
-    <%= image_tag 'themes_gallery/show_mask.jpg', :class => 'theme_preview' %>
+    <% @themes.each do |theme| %>
+      <%= image_tag "themes_gallery/#{theme.slug}.png", :class => :theme_preview %>
+    <% end %>
     <%= image_tag 'closeOverlay.png', :class => :close_overlay, :id => :close_theme_gallery %>
   </div>
 </div>

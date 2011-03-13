@@ -34,6 +34,8 @@ class BusinessCardsController < ApplicationController
     
     @business_card = find_business_card_by_id
     
+    @themes = Theme.where(:status => :active).find(:all)
+    
   end
   
   def update
