@@ -10,6 +10,7 @@ class BusinessCard < ActiveRecord::Base
   
   # validations
   validates_presence_of :url, :message => ' is required'
+  validates_uniqueness_of :url, :message => ' is not available'
   validates_presence_of :title, :message => ' is required'
   
   def self.find_business_cards_by_user(user)
