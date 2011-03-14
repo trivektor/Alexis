@@ -12,6 +12,7 @@ var Theme = {
 		this.theme_gallery = $("#theme_gallery");
 		this.close_theme_gallery_btn = $("#close_theme_gallery");
 		this.theme_preview = $(".theme_preview");
+		this.theme_gallery_message = $("#theme_gallery_message");
 	},
 	
 	open_theme_gallery : function() {
@@ -33,6 +34,7 @@ var Theme = {
  	setup_theme_select : function() {
 		
 		Theme.theme_preview.click(function() {
+			Theme.theme_gallery_message.text("Applying theme...")
 			$.ajax({
 				type: "POST",
 				url: "/business_cards/" + BusinessCard.id + "/select_theme",
@@ -41,10 +43,29 @@ var Theme = {
 					theme_id: Theme.selected_theme_id($(this))			
 				},
 				success: function(response) {
-					
+					if (response.success == 1) {
+						Theme.update_theme_gallery_message({message: "Your business card has been updated", success: 1})
+					} else {
+						Theme.update_theme_gallery_message({message: "An error occurred while updating your card. Please try again later", success: -1})
+					}
 				}
 			})
 		})
+	},
+	
+	update_theme_gallery_message : function(object) {
+		var message = Theme.theme_gallery_message.removeClass();
+		var fadeSpeed = 500
+		var fadeTimeout = 2000
+		
+		if (object.success == 1) {
+			message.addClass("result_success").text(object.message).fadeIn(fadeSpeed);
+			setTimeout(function() { message.fadeOut(fadeSpeed)}, fadeTimeout)
+		} else {
+			message.addClass("result_error").text(object.message).fadeIn(fadeSpeed);
+			setTimeout(function() {message.fadeOut(fadeSpeed)}, fadeTimeout)
+		}
+		
 	}
 	
 }

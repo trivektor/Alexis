@@ -74,7 +74,7 @@ border: 1px solid #A1100A; color: #FFFFFF; cursor: pointer; display: inline-bloc
 #stage {padding:30px;}
 #mycards_list {margin-bottom:20px}
 
-#theme_gallery {width:800px; background:#fff; padding:10px; -moz-border-radius:5px; -moz-box-shadow:0 6px 46px #444; position:absolute; top:15%; left:50%; margin-left:-410px; z-index:8004;}
+#theme_gallery {width:800px; background:#fff; padding:10px; -moz-border-radius:5px; -moz-box-shadow:0 6px 46px #444; position:fixed; top:50%; left:50%; margin-left:-410px; margin-top:-280px; z-index:8004;}
 #theme_gallery_inner {background:#E4E9D0; padding:20px; text-align:center; height:500px; overflow:auto;}
 #theme_gallery .theme_preview {margin:15px; -moz-box-shadow:0 1px 1px #555; -webkit-box-shadow:0 1px 1px #555; cursor:pointer;}
 #select_theme {margin-top:0;}
