@@ -22,6 +22,8 @@ class BusinessCardsController < ApplicationController
       @business_card.business_card_information = BusinessCardInformation.new(:business_card_id => @business_card.id)
       @business_card.business_card_information.save
       
+      BusinessCardSectionOrder.create_section_order(@business_card)
+      
       redirect_to dashboard_path
       
     else
@@ -35,6 +37,8 @@ class BusinessCardsController < ApplicationController
     @business_card = find_business_card_by_id
     
     @themes = Theme.where(:status => :active).find(:all)
+    
+    @section_order = @business_card.business_card_section_orders
     
   end
   

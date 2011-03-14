@@ -23,6 +23,8 @@
   
     <div class="white_region">
       <div class="beige_region">
+        
+        <h2>Basic Information</h2>
     
         <div class="form_row">
           <%= business_card_form.label :title %>
@@ -40,6 +42,8 @@
             <label>Business card title</label>
             <%= info.text_field :title, :class => :textbox %>
           </div>
+          
+          <h2>Contact Information <a id="order_contact_information" style="color:#444;font-size:12px;text-decoration:underline">order</a></h2>
       
           <div class="form_row">
             <%= info.label :email %>
@@ -81,3 +85,5 @@
 <input type="hidden" id="business_card_id" value="<%= @business_card.id %>" />
 
 <%= render :partial => 'shared/theme_gallery' %>
+
+<%= render :partial => 'shared/business_card_section_modal' %>

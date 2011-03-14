@@ -1,3 +1,19 @@
+var Alexis = {
+	
+	init : function() {
+		this.setup_selectors();
+	},
+	
+	setup_selectors : function() {
+		this.overlay = $("#overlay")
+	},
+	
+	toggle_overlay : function() {
+		this.overlay.toggle();
+	}
+	
+}
+
 var Theme = {
 	
 	init : function() {
@@ -17,13 +33,16 @@ var Theme = {
 	
 	open_theme_gallery : function() {
 		this.select_theme_btn.click(function() {
+			Alexis.toggle_overlay();
 			Theme.theme_gallery.fadeIn(500)
 		})
 	},
 	
 	close_theme_gallery : function() {
 		this.close_theme_gallery_btn.click(function() {
-			Theme.theme_gallery.fadeOut(500)
+			Theme.theme_gallery.fadeOut(500, function() {
+				Alexis.toggle_overlay();
+			})
 		})
 	},
 	
@@ -75,14 +94,53 @@ var BusinessCard = {
 	init : function() {
 		this.setup_selectors();
 		this.id = this.business_card_id.val();
+		this.setup_order_contact_info();
+		this.setup_business_card_section_modal_close();
 	},
 	
 	setup_selectors : function() {
 		this.business_card_id = $("#business_card_id")
+		this.order_contact_information_btn = $("#order_contact_information");
+		this.business_card_section_modal = $("#business_card_section_modal");
+		this.close_business_card_section_modal_btn = $("#close_business_card_section_modal");
+		this.contact_info_sections = $("#business_card_section_modal .sortable");
+	},
+	
+	setup_order_contact_info : function() {
+		this.contact_info_sections.sortable({
+			revert: true,
+			stop: function() {
+				var order = $(this).sortable('serialize', {key:'section[]'});
+				
+				$.ajax({
+					url: "/business_cards/" + BusinessCard.id + "/business_card_section_orders",
+					type: "POST",
+					data: order,
+					success: function() {
+						
+					}
+				})
+			}
+		});
+		
+		this.order_contact_information_btn.click(function() {
+			Alexis.toggle_overlay();
+			BusinessCard.business_card_section_modal.show()
+		})
+	},
+	
+	setup_business_card_section_modal_close : function() {
+		this.close_business_card_section_modal_btn.click(function() {
+			BusinessCard.business_card_section_modal.fadeOut(500, function() {
+				Alexis.toggle_overlay();
+			});
+		})
 	}
 }
 
 $(function() {
+	
+	Alexis.init();
 
 	BusinessCard.init();
 	

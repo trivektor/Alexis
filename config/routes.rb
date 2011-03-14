@@ -13,9 +13,18 @@ Alexis::Application.routes.draw do
     
     member do
       post :select_theme
+      post :order_contact_info
+    end
+    
+    resources :business_card_section_orders do
+      collection do
+        post :update
+      end
     end
     
   end
+  
+  
   
   resources :profiles, :only => [:show, :edit, :update]
     

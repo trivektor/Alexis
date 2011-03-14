@@ -1,0 +1,11 @@
+<div id="business_card_section_modal" class="overlay_modal" style="display:none">
+  <h3>Order Contact Information</h3>
+  <%= image_tag 'closeOverlay.png', :class => :close_overlay, :id => :close_business_card_section_modal %>
+  <div class="sortable ui-sortable">
+    <% @section_order.each do |section| %>
+      <div id="section_<%= section.id %>" class="section">
+        <%= section.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
