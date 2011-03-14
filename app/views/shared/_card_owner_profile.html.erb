@@ -1,0 +1,18 @@
+<span id="profile">Profile</span>
+<div id="profile_leaf">
+  <%= image_tag 'arrowTip.png', :id => :profile_leaf_tip %>
+  <div id="profile_leaf_inner" class="clearfix">
+      
+      <%= image_tag @profile.user.gravatar_url, :id => :profile_photo %>
+      
+      <div id="profile_details">
+        <p id="profile_name"><%= @profile.first_name %> <%= @profile.last_name %></p>
+        <%= "<p>#{@profile.job_title}</p>".html_safe unless @profile.job_title.blank? %>
+      
+        <% location = generate_profile_location @profile %>
+        <%= "<p>#{location}</p>".html_safe unless location.blank? %>
+      
+        <%= "<p><a href=\"#{@profile.website}\" target=\"_blank\">#{@profile.website}</a></p>".html_safe unless @profile.website.blank? %>
+      </div>
+  </div>
+</div>

@@ -80,7 +80,6 @@ var BusinessCard = {
 	setup_selectors : function() {
 		this.business_card_id = $("#business_card_id")
 	}
-	
 }
 
 $(function() {
@@ -89,12 +88,15 @@ $(function() {
 	
 	Theme.init();
 	
-	$(".tooltip").tooltip({
-		showURL: false,
-		track: true,
-		delay: 0,
-		left: -40,
-		top: 20
-	})
+	if ($(".tooltip").size > 0) {
+		$(".tooltip").tooltip({
+			showURL: false,
+			track: true,
+			delay: 0,
+			left: -40,
+			top: 20
+		})
+	}
+	
 	
 })

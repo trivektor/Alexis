@@ -33,7 +33,7 @@
         
         <div class="form_row">
           <%= profile_form.label :country %>
-          <%= profile_form.select :country, Carmen::country_names, :selected => @profile.country %>
+          <%= profile_form.select :country, Carmen::country_names, :selected => @profile.country, :include_blank => true, :default => '----' %>
         </div>
         
         <div class="form_row">

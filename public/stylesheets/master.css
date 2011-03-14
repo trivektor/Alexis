@@ -28,7 +28,7 @@ color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-he
 .result_error {margin:20px 0}
 .result_error li {margin:10px 0; list-style:none; color:#b00000; font-size:12px;}
 
-.item_list li {overflow:hidden; padding:4px 4px 4px 0}
+.item_list li {overflow:hidden; padding:4px 4px 4px 0; margin-bottom:15px}
 
 .vanilla_region {-moz-border-radius:7px; background:#e4ddce; padding:30px; -moz-box-shadow:0 2px 2px #706751 inset}
 .beige_region {background:#efeadf; padding:30px}

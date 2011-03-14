@@ -18,6 +18,7 @@
                 <li class="clearfix">
                   <div class="left">
                     <a class="card_name tooltip" href="/<%= business_card.url %>" title="View this card (in a new tab)"><%= business_card.title %></a>
+                    <div>Last updated on <%= convert_timestamp_to_date business_card.updated_at  %></div>
                   </div>
                   <div class="options">
                     <a class="delete" href="/business_cards/<%= business_card.id %>/delete" title="Delete"></a>
