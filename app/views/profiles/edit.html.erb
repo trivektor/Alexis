@@ -42,7 +42,7 @@
         </div>
         
         <div class="form_row">
-          <%= profile_form.label :state %>
+          <label>State/Province</label>
           <%= profile_form.text_field :state, :class => :textbox %>
         </div>
         
@@ -54,6 +54,11 @@
         <div class="form_row">
           <%= profile_form.label :job_title %>
           <%= profile_form.text_field :job_title, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :about_me %>
+          <%= profile_form.text_area :about_me, :class => :textbox, :rows => 10, :cols => 50 %>
         </div>
         
         <div class="form_row">

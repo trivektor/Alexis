@@ -1,3 +1,5 @@
+<% if !@profile.hidden %>
+
 <span id="profile">Profile</span>
 <div id="profile_leaf">
   <%= image_tag 'arrowTip.png', :id => :profile_leaf_tip %>
@@ -13,6 +15,10 @@
         <%= "<p>#{location}</p>".html_safe unless location.blank? %>
       
         <%= "<p><a href=\"#{@profile.website}\" target=\"_blank\">#{@profile.website}</a></p>".html_safe unless @profile.website.blank? %>
+        
+        <%= "<p id=\"profile_about\">#{@profile.about_me}</p>".html_safe unless @profile.about_me.blank? %>
       </div>
   </div>
 </div>
+
+<% end %>

@@ -16,7 +16,7 @@ ul {list-style:none}
 .clearfloat:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 
 .textbox {-moz-border-radius:5px; -moz-box-shadow: 0 3px 3px #706751 inset; background:#d9cdb2; border-color: -moz-use-text-color -moz-use-text-color #FFF8E8; border-style: none none solid; border-width: medium medium 2px;
-color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-height:17px; margin: 5px 0 0; padding: 15px; width:440px;}
+color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-height:17px; margin: 5px 0 0; padding: 15px; width:600px;}
 
 .session_form {margin:60px auto; width:400px; padding:0 53px 50px; background:#fff; -moz-box-shadow:0 1px 2px #999; -moz-border-radius:5px;}
 .session_form_inner {margin-top:30px; background:#efe4ba; padding:32px; -moz-box-shadow:0 0 1px #444 inset; -moz-border-radius:5px;}

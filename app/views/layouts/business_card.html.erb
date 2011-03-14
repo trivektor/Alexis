@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= @title_for_layout %> - Alexis</title>
+  <meta name="description" content="<%= @business_card.title %>" />
   <%= stylesheet_link_tag ['business_card', "themes/#{@theme.slug}"] %>
   <%= javascript_include_tag [
     'jquery',
