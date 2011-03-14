@@ -56,13 +56,19 @@ class BusinessCardsController < ApplicationController
   def show
     @business_card = BusinessCard.find_by_url params[:url]
     
-    @theme = Theme.find_by_slug :show_mask
+    @theme = Theme.find_by_id @business_card.business_card_theme.theme_id
     
     render :layout => 'business_card'
   end
   
   def select_theme
-    
+    if Theme.theme_applicable(params[:theme_id])
+      business_card_theme = BusinessCardTheme.where(:business_card_id => params[:id]).first
+      business_card_theme.update_attributes(:theme_id => params[:theme_id])
+      render :json => {:success => 1}
+    else
+      render :json => {:success => -1}
+    end
   end
   
   private

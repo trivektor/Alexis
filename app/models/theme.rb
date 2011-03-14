@@ -12,4 +12,9 @@ class Theme < ActiveRecord::Base
     
   end
   
+  def self.theme_applicable(theme_id)
+    theme = Theme.where(:id => theme_id, :status => :active).first
+    !theme.nil?
+  end
+  
 end

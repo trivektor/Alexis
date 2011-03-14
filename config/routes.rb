@@ -12,7 +12,7 @@ Alexis::Application.routes.draw do
   resources :business_cards do
     
     member do
-      get :select_theme
+      post :select_theme
     end
     
   end

@@ -14,5 +14,5 @@ class BusinessCard < ActiveRecord::Base
   def self.find_business_cards_by_user(user)
     BusinessCard.where(:user_id => user.id, :status => :active).find(:all)
   end
-  
+    
 end

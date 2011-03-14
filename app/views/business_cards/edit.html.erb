@@ -6,7 +6,7 @@
 <h1 style="float:left"><%= @title_for_layout %></h1>
 
 <div class="options" style="float:right; text-align:right">
-  <a id="select_theme" class="green_btn">Pick a theme</a>
+  <a id="select_theme">Pick a theme</a> | <a id="preview_card" href="/<%= @business_card.url %>" target="_blank">View card</a>
 </div>
 
 <div class="clearfloat"></div>
@@ -78,10 +78,13 @@
   
 <% end %>
 
+<input type="hidden" id="business_card_id" value="<%= @business_card.id %>" />
+
 <div id="theme_gallery" style="display:none">
   <div id="theme_gallery_inner">
+    <h2><strong>Pick a theme</strong></h2>
     <% @themes.each do |theme| %>
-      <%= image_tag "themes_gallery/#{theme.slug}.png", :class => :theme_preview %>
+      <%= image_tag "themes_gallery/#{theme.slug}.jpg", :class => 'theme_preview tooltip', :title => theme.title, :rel => theme.id %>
     <% end %>
     <%= image_tag 'closeOverlay.png', :class => :close_overlay, :id => :close_theme_gallery %>
   </div>
