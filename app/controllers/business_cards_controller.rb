@@ -67,6 +67,16 @@ class BusinessCardsController < ApplicationController
     @profile = Profile.find_by_user_id @business_card.user_id
     
     render :layout => 'business_card'
+    
+    #TODO: handle cases where the card requested does not exist
+  end
+  
+  def destroy
+    business_card = BusinessCard.find(params[:id])
+    business_card.destroy
+    flash[:notice] = 'The card has been deleted'
+    
+    redirect_to dashboard_path
   end
   
   def select_theme

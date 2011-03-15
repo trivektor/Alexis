@@ -5,7 +5,7 @@ var Alexis = {
 	},
 	
 	setup_selectors : function() {
-		this.overlay = $("#overlay")
+		this.overlay = jQuery("#overlay")
 	},
 	
 	toggle_overlay : function() {
@@ -24,11 +24,11 @@ var Theme = {
 	},
 	
 	setup_selectors : function() {
-		this.select_theme_btn = $("#select_theme");
-		this.theme_gallery = $("#theme_gallery");
-		this.close_theme_gallery_btn = $("#close_theme_gallery");
-		this.theme_preview = $(".theme_preview");
-		this.theme_gallery_message = $("#theme_gallery_message");
+		this.select_theme_btn = jQuery("#select_theme");
+		this.theme_gallery = jQuery("#theme_gallery");
+		this.close_theme_gallery_btn = jQuery("#close_theme_gallery");
+		this.theme_preview = jQuery(".theme_preview");
+		this.theme_gallery_message = jQuery("#theme_gallery_message");
 	},
 	
 	open_theme_gallery : function() {
@@ -54,12 +54,12 @@ var Theme = {
 		
 		Theme.theme_preview.click(function() {
 			Theme.theme_gallery_message.text("Applying theme...")
-			$.ajax({
+			jQuery.ajax({
 				type: "POST",
 				url: "/business_cards/" + BusinessCard.id + "/select_theme",
 				data: {
 					id: BusinessCard.id,
-					theme_id: Theme.selected_theme_id($(this))			
+					theme_id: Theme.selected_theme_id(jQuery(this))			
 				},
 				success: function(response) {
 					if (response.success == 1) {
@@ -99,20 +99,20 @@ var BusinessCard = {
 	},
 	
 	setup_selectors : function() {
-		this.business_card_id = $("#business_card_id")
-		this.order_contact_information_btn = $("#order_contact_information");
-		this.business_card_section_modal = $("#business_card_section_modal");
-		this.close_business_card_section_modal_btn = $("#close_business_card_section_modal");
-		this.contact_info_sections = $("#business_card_section_modal .sortable");
+		this.business_card_id = jQuery("#business_card_id")
+		this.order_contact_information_btn = jQuery("#order_contact_information");
+		this.business_card_section_modal = jQuery("#business_card_section_modal");
+		this.close_business_card_section_modal_btn = jQuery("#close_business_card_section_modal");
+		this.contact_info_sections = jQuery("#business_card_section_modal .sortable");
 	},
 	
 	setup_order_contact_info : function() {
 		this.contact_info_sections.sortable({
 			revert: true,
 			stop: function() {
-				var order = $(this).sortable('serialize', {key:'section[]'});
+				var order = jQuery(this).sortable('serialize', {key:'section[]'});
 				
-				$.ajax({
+				jQuery.ajax({
 					url: "/business_cards/" + BusinessCard.id + "/business_card_section_orders",
 					type: "POST",
 					data: order,
@@ -138,7 +138,7 @@ var BusinessCard = {
 	}
 }
 
-$(function() {
+jQuery(function() {
 	
 	Alexis.init();
 
@@ -146,8 +146,8 @@ $(function() {
 	
 	Theme.init();
 	
-	if ($(".tooltip").size > 0) {
-		$(".tooltip").tooltip({
+	if (jQuery(".tooltip").size > 0) {
+		jQuery(".tooltip").tooltip({
 			showURL: false,
 			track: true,
 			delay: 0,
