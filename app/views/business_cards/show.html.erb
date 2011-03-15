@@ -14,11 +14,9 @@
           <h2 id="name"><%= @info.name %></h2>
           <div id="title"><%= @info.title %></div>
           <ul id="contact_info">
-            <%= "<li>#{obfuscate_email(@info.email)}</li>".html_safe unless @info.email.blank? %>
-            <%= "<li><a href=\"#{@info.website}\" target=\"_blank\">#{@info.website}</a></li>".html_safe unless @info.website.blank? %>
-            <%= "<li>#{@info.phone_number}</li>".html_safe unless @info.phone_number.blank? %>
-            <%= "<li>#{@info.fax_number}</li>".html_safe unless @info.fax_number.blank? %>
-            <%= "<li>#{@info.address}</li>".html_safe unless @info.address.blank? %>
+            <% @section_order.each do |section| %>
+              <%= render :partial => "shared/business_card/show/#{section.section}" %>
+            <% end %>
           </ul>
         </div>
         <div class="clearfloat"></div>

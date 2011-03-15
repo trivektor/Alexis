@@ -60,6 +60,8 @@ class BusinessCardsController < ApplicationController
   def show
     @business_card = BusinessCard.find_by_url params[:url]
     
+    @section_order = @business_card.business_card_section_orders
+    
     @theme = Theme.find_by_id @business_card.business_card_theme.theme_id
     
     @profile = Profile.find_by_user_id @business_card.user_id

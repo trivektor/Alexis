@@ -5,6 +5,16 @@ class BusinessCardSectionOrdersController < ApplicationController
   
   def update
     
+    sections = params[:section]
+    
+    weight = sections.count
+    
+    for id in sections
+      section = BusinessCardSectionOrder.where(:business_card_id => params[:business_card_id], :id => id).first
+      section.update_attributes(:weight => weight)
+      weight -= 1
+    end
+    
     render :json => {:success => 1}
   end
   
