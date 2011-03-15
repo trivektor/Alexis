@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314184805) do
+ActiveRecord::Schema.define(:version => 20110315063318) do
 
   create_table "business_card_informations", :force => true do |t|
     t.integer  "business_card_id"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(:version => 20110314184805) do
     t.string   "website"
     t.string   "gender",      :default => "male"
     t.text     "about_me"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linked_in"
+    t.string   "dribble"
+    t.string   "gowalla"
+    t.string   "forrst"
+    t.string   "quora"
+    t.string   "foursquare"
+    t.string   "flickr"
     t.boolean  "hidden",      :default => false
     t.string   "status",      :default => "active"
     t.datetime "created_at"

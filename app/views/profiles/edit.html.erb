@@ -14,6 +14,8 @@
     <div class="white_region">
       <div class="beige_region">
         
+        <h2>Basic Information</h2>
+        
         <div class="form_row">
           <label>Your photo <span class="tooltip concern" title="We're using gravatar (http://www.gravatar.com)">(how do I change it?)</span></label>
           <%= image_tag current_user.gravatar_url, :class => :user_image %>
@@ -28,6 +30,28 @@
           <%= profile_form.label :last_name %>
           <%= profile_form.text_field :last_name, :class => :textbox %>
         </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :gender %>
+          <%= profile_form.select :gender, {:male => 'male', :female => 'female'}, :selected => @profile.gender %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :job_title %>
+          <%= profile_form.text_field :job_title, :class => :textbox %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :about_me %>
+          <%= profile_form.text_area :about_me, :class => :textbox, :rows => 10, :cols => 50 %>
+        </div>
+        
+        <div class="form_row">
+          <%= profile_form.label :website %>
+          <%= profile_form.text_field :website, :class => :textbox %>
+        </div>
+        
+        <h2>Geographic Location</h2>
         
         <div class="form_row">
           <%= profile_form.label :city %>
@@ -49,25 +73,15 @@
           <%= profile_form.text_field :state, :class => :textbox %>
         </div>
         
-        <div class="form_row">
-          <%= profile_form.label :website %>
-          <%= profile_form.text_field :website, :class => :textbox %>
-        </div>
+        <h2>Social Networks</h2>
         
+        <% [:facebook, :twitter, :flickr, :linked_in, :dribble, :gowalla, :foursquare, :forrst, :quora].each do |network| %>
         <div class="form_row">
-          <%= profile_form.label :job_title %>
-          <%= profile_form.text_field :job_title, :class => :textbox %>
+          <%= profile_form.label network %>
+          <%= profile_form.text_field network, :class => :textbox %>
         </div>
+        <% end %>
         
-        <div class="form_row">
-          <%= profile_form.label :about_me %>
-          <%= profile_form.text_area :about_me, :class => :textbox, :rows => 10, :cols => 50 %>
-        </div>
-        
-        <div class="form_row">
-          <%= profile_form.label :gender %>
-          <%= profile_form.select :gender, {:male => 'male', :female => 'female'}, :selected => @profile.gender %>
-        </div>
         
         <div class="form_row">
           <%= profile_form.check_box :hidden  %>
