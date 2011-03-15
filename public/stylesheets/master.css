@@ -54,6 +54,8 @@ border: 1px solid #4a6405; color: #FFFFFF; cursor: pointer; display: inline-bloc
 .blue_btn {-moz-border-radius:4px; -moz-box-shadow: 0 1px 1px #F34217 inset, 0 1px 1px #332300; background: -moz-linear-gradient(center bottom , #2b87ef 0%, #2b78ce 45%, #1f5b9f 46%, #194372 100%) repeat scroll 0 0 #194372;
 border: 1px solid #A1100A; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; margin-top: 10px; padding:10px 15px; text-shadow: 0 -1px 1px #250300;}
 
+.concern {color:#444;font-size:12px;text-decoration:underline; cursor:pointer;}
+
 .close_overlay {position:absolute; top:-12px; right:-12px; cursor:pointer;}
 
 .overlay_modal {-moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 1px 4px #333; -webkit-box-shadow:0 1px 4px #333; background:#fff; left: 50%; margin-left: -190px; padding: 15px;
