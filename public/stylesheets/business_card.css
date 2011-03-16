@@ -8,6 +8,8 @@ a {outline:none; text-decoration:none;}
 
 h1, h2, h3 {font-weight:normal;}
 
+img {border:0;}
+
 .clearfloat {clear:both;}
 .clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 
@@ -38,3 +40,6 @@ ul {list-style:none;}
 #profile_leaf a {color:#fff}
 #profile_details {float:left; width:180px}
 #profile_about {line-height:18px;}
+
+#social_networks {margin-top:20px;}
+#social_networks .network_icon {margin-right:5px}

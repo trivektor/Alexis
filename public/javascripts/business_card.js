@@ -8,5 +8,9 @@ $(function(){
 		out: function(){ profile_leaf.slideToggle() }
 	}
 	
-	$("#profile").hoverIntent( config )
+	$("#profile").click(
+		function() {
+			profile_leaf.slideToggle()
+		}
+	)
 })

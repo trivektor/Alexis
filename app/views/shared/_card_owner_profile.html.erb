@@ -17,6 +17,32 @@
         <%= "<p><a href=\"#{@profile.website}\" target=\"_blank\">#{@profile.website}</a></p>".html_safe unless @profile.website.blank? %>
         
         <%= "<p id=\"profile_about\">#{@profile.about_me}</p>".html_safe unless @profile.about_me.blank? %>
+        
+        <ul id="social_networks">
+          <li>
+            <% if !@profile.facebook.blank? %>
+              <a href="<%= @profile.facebook %>" target="_blank"><%= image_tag 'facebook_16.png', :alt => 'Facebook', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.twitter.blank? %>
+              <a href="<%= @profile.twitter %>"><%= image_tag 'twitter_16.png', :alt => 'Twitter', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.flickr.blank? %>
+              <a href="<%= @profile.flickr %>"><%= image_tag 'flickr_16.png', :alt => 'Facebook', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.linked_in.blank? %>
+              <a href="<%= @profile.linked_in %>"><%= image_tag 'linkedin_16.png', :alt => 'LinkedIn', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.dribble.blank? %>
+            <a href="<%= @profile.dribble %>"><%= image_tag 'dribbble_16.png', :alt => 'Dribble', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.gowalla.blank? %>
+              <a href="<%= @profile.gowalla %>"><%= image_tag 'gowalla_16.png', :alt => 'Gowalla', :class => :network_icon %></a>
+            <% end %>
+            <% if !@profile.forrst.blank? %>
+              <a href="<%= @profile.forrst %>"><%= image_tag 'forrst_16.png', :alt => 'Forrst', :class => :network_icon %></a>
+            <% end %>
+          </li>
+        </ul>
       </div>
   </div>
 </div>
