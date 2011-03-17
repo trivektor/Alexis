@@ -66,6 +66,8 @@ class BusinessCardsController < ApplicationController
     
     @profile = Profile.find_by_user_id @business_card.user_id
     
+    update_analytics(@business_card)
+    
     render :layout => 'business_card'
     
     #TODO: handle cases where the card requested does not exist
@@ -87,6 +89,19 @@ class BusinessCardsController < ApplicationController
     else
       render :json => {:success => -1}
     end
+  end
+  
+  def stats
+    business_card = BusinessCard.find(params[:id])
+    visitor_infos = VisitorInfo.get_browser_stats_by_business_card(business_card)
+    
+    @total = visitor_infos.count
+    
+    @browser_stats = VisitorInfo.get_browser_stats(visitor_infos)
+    
+    @version_stats = VisitorInfo.get_browser_version_stats(visitor_infos)
+    
+    #@platform_stats = VisitorInfo.get_platform_stats(visitor_infos)
   end
   
   private
@@ -111,6 +126,10 @@ class BusinessCardsController < ApplicationController
     rescue
       false
     end
+  end
+  
+  def update_analytics(business_card)
+    VisitorInfo.update_analytics(business_card, request)
   end
   
 end

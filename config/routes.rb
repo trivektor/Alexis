@@ -14,6 +14,7 @@ Alexis::Application.routes.draw do
     member do
       post :select_theme
       post :order_contact_info
+      get :stats
     end
     
     resources :business_card_section_orders do

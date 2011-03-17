@@ -1,0 +1,29 @@
+<%
+@title_for_layout = 'View Business Card Statistics'
+@body_id = 'show_business_card_statistics'
+%>
+
+<h1>Statistics</h1>
+
+<div class="vanilla_region">
+  <div class="white_region">
+    <div class="beige_region">
+      <h2>Browser distribution</h2>
+      <ul id="browser_distribution" class="item_list">
+        <% ['Firefox', 'Opera', 'Safari', 'Chrome'].each do |browser| %>
+          <li class="browser_distribution">
+            <%= image_tag "#{browser.downcase}.png", :class => :browser_icon, :alt => browser %> 
+            <span class="percentage"><%= 100 * @browser_stats[browser]/@total %>%</span>
+          </li>
+          <!-- <li class="version_distribution">
+            <% @version_stats[browser].each do |version, count| %>
+              <div class="version">
+                Version <%= version %>: <%= 100 * count/@browser_stats[browser] %>%
+              </div> 
+            <% end %>
+          </li> -->
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

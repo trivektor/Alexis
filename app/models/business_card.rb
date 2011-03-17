@@ -5,6 +5,7 @@ class BusinessCard < ActiveRecord::Base
   has_one :business_card_theme, :dependent => :destroy
   has_one :business_card_information, :dependent => :destroy
   has_many :business_card_section_orders, :dependent => :destroy, :order => 'weight DESC'
+  has_many :visitor_infos, :dependent => :destroy
   
   accepts_nested_attributes_for :business_card_information
   

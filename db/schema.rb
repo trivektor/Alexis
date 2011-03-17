@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315063318) do
+ActiveRecord::Schema.define(:version => 20110316221222) do
 
   create_table "business_card_informations", :force => true do |t|
     t.integer  "business_card_id"
@@ -103,6 +103,17 @@ ActiveRecord::Schema.define(:version => 20110315063318) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "visitor_infos", :force => true do |t|
+    t.integer  "business_card_id"
+    t.string   "browser"
+    t.string   "version"
+    t.string   "platform"
+    t.string   "domain_name"
+    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

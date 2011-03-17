@@ -6,6 +6,10 @@
 
 <%= render :partial => 'shared/card_owner_profile' %>
 
+<pre>
+  <%= UserAgent.parse(request.user_agent).inspect %>
+</pre>
+
 <div id="card_wrapper">
   <div id="card_top_shadow">
     <div id="card_background_wrapper">

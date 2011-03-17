@@ -42,8 +42,15 @@ color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-he
 .edit {background:#fff url(../images/pencil_16.png) no-repeat center}
 .delete {background:#fff url(../images/delete_16.png) no-repeat center}
 .viewlive {background:#fff url(../images/search_16.png) no-repeat center}
+.analytic {background:#fff url(../images/statistics_16.png) no-repeat center}
+
+.browser_icon {float:left; margin-right:20px;}
+.percentage {float:left; font-size:20px; margin-top:10px;}
+.version_distribution {font-size:15px; padding-left:68px !important;}
+.version {margin-bottom:10px;}
 
 .card_name {color:#111; font-size:16px; margin-top:3px; display:inline-block}
+.card_last_updated {margin:10px 0}
 
 .user_image {-moz-box-shadow:0 2px 5px #444; -webkit-box-shadow:0 2px 5px #444; border:8px solid #FFFFFF}
 

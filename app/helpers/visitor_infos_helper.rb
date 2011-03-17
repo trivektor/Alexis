@@ -1,0 +1,2 @@
+module VisitorInfosHelper
+end

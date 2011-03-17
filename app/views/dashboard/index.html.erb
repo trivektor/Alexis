@@ -20,13 +20,14 @@
                 <li class="clearfix">
                   <div class="left">
                     <a class="card_name tooltip" href="/<%= business_card.url %>" title="View this card (in a new tab)"><%= business_card.title %></a>
-                    <div>Last updated on <%= convert_timestamp_to_date business_card.updated_at  %></div>
+                    <div class="card_last_updated">Last updated on <%= convert_timestamp_to_date business_card.updated_at  %></div>
                   </div>
                   <div class="options">
                     <a class="delete" href="/business_cards/<%= business_card.id %>/delete" title="Delete"></a>
                     <%= link_to 'Delete', business_card, :method => :delete, :confirm => 'Are you sure? This action cannot be undone', :class => 'delete action_link tooltip', :title => 'Delete this card' %>
                     <a target="_blank" href="/<%= business_card.url %>" class="viewlive action_link tooltip" title="View this card"><%= business_card.url %></a>
                     <%= link_to 'Edit', edit_business_card_path(business_card), :class => 'edit action_link tooltip', :title => 'Edit this card' %>
+                    <%= link_to 'Analytics', stats_business_card_path(business_card), :class => 'analytic action_link', :title => 'View stats' %>
                   </div>
                 </li>
               <% end %>

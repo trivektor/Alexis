@@ -30,6 +30,7 @@ gem 'useragent'
 gem 'gravtastic'
 gem 'dynamic_form'
 gem 'spectator-validates_email', :require => 'validates_email'
+gem 'browser'
 
 
 # Bundle gems for the local environment. Make sure to
