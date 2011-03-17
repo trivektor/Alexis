@@ -82,4 +82,18 @@ class VisitorInfo < ActiveRecord::Base
     platforms
   end
   
+  def self.get_country_stats(visitor_infos)
+    countries = {}
+    
+    for info in visitor_infos
+      if countries.has_key?(info.country_code)
+        countries[info.country_code] += 1
+      else
+        countries[info.country_code] = 1
+      end
+    end
+    
+    countries
+  end
+  
 end

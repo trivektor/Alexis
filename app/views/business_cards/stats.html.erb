@@ -8,6 +8,7 @@
 <div class="vanilla_region">
   <div class="white_region">
     <div class="beige_region">
+      
       <h2>Browser distribution</h2>
       <% if @total > 0 %>
       <ul id="browser_distribution" class="item_list">
@@ -30,6 +31,19 @@
       <% else %>
       <p>Statistics will start to show here as people start viewing your card</p>
       <% end %>
+      
+      <h2>Country distribution</h2>
+      
+      <% if @country_stats.count > 0 %>
+      <ul class="item_list">
+        <% @country_stats.each do |country_code, count| %>
+          <% country_name = Carmen.country_name(country_code) %>
+          <li><%= country_name %>: <%= count %></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <% end %>
+      
     </div>
   </div>
 </div>

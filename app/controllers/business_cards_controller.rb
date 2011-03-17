@@ -106,7 +106,8 @@ class BusinessCardsController < ApplicationController
     
     @version_stats = VisitorInfo.get_browser_version_stats(visitor_infos)
     
-    #@platform_stats = VisitorInfo.get_platform_stats(visitor_infos)
+    @country_stats = VisitorInfo.get_country_stats(visitor_infos)
+  
   end
   
   private
