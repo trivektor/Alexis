@@ -138,7 +138,7 @@ class BusinessCardsController < ApplicationController
     if request.remote_addr == '127.0.0.1'
       geo_location = IpGeocoder.geocode('173.230.163.228')
     else 
-      geo_location = IpGeocoder.geocode(request.remote_addr)
+      geo_location = IpGeocoder.geocode(request.remote_ip)
     end
     VisitorInfo.update_analytics(business_card, request, geo_location)
   end
