@@ -1,6 +1,6 @@
 <div id="theme_gallery" style="display:none">
   <div id="theme_gallery_inner">
-    <h2><strong>Pick a theme</strong></h2>
+    <h2><%= image_tag 'selectTheme.png', :alt => 'Select a theme' %></h2>
     <% @themes.each do |theme| %>
       <%= image_tag "themes_gallery/#{theme.slug}.jpg", :class => 'theme_preview tooltip', :title => theme.title, :rel => theme.id %>
     <% end %>
