@@ -1,6 +1,6 @@
 class BusinessCardsController < ApplicationController
   
-  geocode_ip_address
+  #geocode_ip_address
   include GeoKit::Geocoders
   
   before_filter :require_user, :except => [:show]
