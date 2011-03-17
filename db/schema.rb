@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316221222) do
+ActiveRecord::Schema.define(:version => 20110317051617) do
 
   create_table "business_card_informations", :force => true do |t|
     t.integer  "business_card_id"
@@ -114,6 +114,11 @@ ActiveRecord::Schema.define(:version => 20110316221222) do
     t.string   "platform"
     t.string   "domain_name"
     t.string   "ip_address"
+    t.string   "province"
+    t.string   "state"
+    t.string   "country_code"
+    t.string   "zip"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

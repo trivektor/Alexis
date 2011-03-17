@@ -1,6 +1,8 @@
 class VisitorInfo < ActiveRecord::Base
   
-  def self.update_analytics(business_card, request)
+  include GeoKit::Geocoders
+  
+  def self.update_analytics(business_card, request, geo_location)
     user_agent = UserAgent.parse(request.user_agent)
     
     if user_agent[0].product == 'Opera'
@@ -13,12 +15,19 @@ class VisitorInfo < ActiveRecord::Base
       browser = user_agent[2].product
     end
     
+    location = IpGeocoder.geocode('12.215.42.19')
+    
     business_card.visitor_infos.create(
       :browser => browser,
       :version => user_agent.version,
       :platform => user_agent[0].comment.join(" "),
       :ip_address => request.remote_addr, 
-      :domain_name => request.host
+      :domain_name => request.host,
+      :province => geo_location.province,
+      :state => geo_location.state,
+      :country_code => geo_location.country_code,
+      :zip => geo_location.zip,
+      :city => geo_location.city
     )
   end
   

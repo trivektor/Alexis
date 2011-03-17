@@ -1,5 +1,8 @@
 class BusinessCardsController < ApplicationController
   
+  geocode_ip_address
+  include GeoKit::Geocoders
+  
   before_filter :require_user, :except => [:show]
   before_filter :verify_ownership, :except => [:show, :new, :create]
   
@@ -70,6 +73,8 @@ class BusinessCardsController < ApplicationController
     
     render :layout => 'business_card'
     
+
+    
     #TODO: handle cases where the card requested does not exist
   end
   
@@ -129,7 +134,12 @@ class BusinessCardsController < ApplicationController
   end
   
   def update_analytics(business_card)
-    VisitorInfo.update_analytics(business_card, request)
+    if request.remote_addr == '127.0.0.1'
+      geo_location = IpGeocoder.geocode('173.230.163.228')
+    else 
+      geo_location = IpGeocoder.geocode(request.remote_addr)
+    end
+    VisitorInfo.update_analytics(business_card, request, geo_location)
   end
   
 end
