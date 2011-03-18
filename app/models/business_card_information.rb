@@ -4,4 +4,9 @@ class BusinessCardInformation < ActiveRecord::Base
   
   #validates :email, :email => {:message => ' is not valid'}
   
+  def self.create_business_card_information(business_card)
+    business_card.business_card_information = BusinessCardInformation.new
+    business_card.business_card_information.save
+  end
+  
 end

@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317172945) do
+ActiveRecord::Schema.define(:version => 20110318022820) do
+
+  create_table "background_colors", :force => true do |t|
+    t.string   "hex_value"
+    t.string   "status",     :default => "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "business_card_backgrounds", :force => true do |t|
+    t.integer  "business_card_id"
+    t.string   "background_color", :default => ""
+    t.string   "background_image", :default => "noise.jpg"
+    t.string   "which",            :default => "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "business_card_informations", :force => true do |t|
     t.integer  "business_card_id"

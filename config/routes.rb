@@ -13,6 +13,7 @@ Alexis::Application.routes.draw do
     
     member do
       post :select_theme
+      post :set_background_color
       post :order_contact_info
       get :stats
     end

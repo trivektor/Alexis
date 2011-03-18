@@ -5,11 +5,28 @@ var Alexis = {
 	},
 	
 	setup_selectors : function() {
-		this.overlay = jQuery("#overlay")
+		this.overlay = jQuery("#overlay");
+		this.alert = jQuery("#alert");
 	},
 	
 	toggle_overlay : function() {
 		this.overlay.toggle();
+	},
+	
+	show_alert_message : function(message, success) {
+		
+		var alert = Alexis.alert;
+		
+		if (success) {
+			alert.text(message)
+			setTimeout
+		} else {
+			alert.text(message)
+		}
+		
+		alert.slideDown();
+		
+		setTimeout(function() { Alexis.alert.slideUp().text("") }, 4000)
 	}
 	
 }
@@ -18,8 +35,6 @@ var Theme = {
 	
 	init : function() {
 		this.setup_selectors();
-		this.open_theme_gallery();
-		this.close_theme_gallery();
 		this.setup_theme_select();
 	},
 	
@@ -29,21 +44,6 @@ var Theme = {
 		this.close_theme_gallery_btn = jQuery("#close_theme_gallery");
 		this.theme_preview = jQuery(".theme_preview");
 		this.theme_gallery_message = jQuery("#theme_gallery_message");
-	},
-	
-	open_theme_gallery : function() {
-		this.select_theme_btn.click(function() {
-			Alexis.toggle_overlay();
-			Theme.theme_gallery.fadeIn(500)
-		})
-	},
-	
-	close_theme_gallery : function() {
-		this.close_theme_gallery_btn.click(function() {
-			Theme.theme_gallery.fadeOut(500, function() {
-				Alexis.toggle_overlay();
-			})
-		})
 	},
 	
 	selected_theme_id : function(selected) {
@@ -63,28 +63,13 @@ var Theme = {
 				},
 				success: function(response) {
 					if (response.success == 1) {
-						Theme.update_theme_gallery_message({message: "Your business card has been updated", success: 1})
+						Alexis.show_alert_message("Your business card hass been updated", true)
 					} else {
-						Theme.update_theme_gallery_message({message: "An error occurred while updating your card. Please try again later", success: -1})
+						//TODO: add error handling
 					}
 				}
 			})
 		})
-	},
-	
-	update_theme_gallery_message : function(object) {
-		var message = Theme.theme_gallery_message.removeClass();
-		var fadeSpeed = 500
-		var fadeTimeout = 2000
-		
-		if (object.success == 1) {
-			message.addClass("result_success").text(object.message).fadeIn(fadeSpeed);
-			setTimeout(function() { message.fadeOut(fadeSpeed)}, fadeTimeout)
-		} else {
-			message.addClass("result_error").text(object.message).fadeIn(fadeSpeed);
-			setTimeout(function() {message.fadeOut(fadeSpeed)}, fadeTimeout)
-		}
-		
 	}
 	
 }
@@ -92,10 +77,16 @@ var Theme = {
 var BusinessCard = {
 	
 	init : function() {
+		
 		this.setup_selectors();
+		this.setup_data(); //custom attributes
+		
 		this.id = this.business_card_id.val();
 		this.setup_order_contact_info();
 		this.setup_business_card_section_modal_close();
+		this.setup_gallery_opener();
+		this.setup_overlay_close();
+		this.setup_background_color_choice();
 	},
 	
 	setup_selectors : function() {
@@ -104,6 +95,18 @@ var BusinessCard = {
 		this.business_card_section_modal = jQuery("#business_card_section_modal");
 		this.close_business_card_section_modal_btn = jQuery("#close_business_card_section_modal");
 		this.contact_info_sections = jQuery("#business_card_section_modal .sortable");
+		this.close_overlay = jQuery(".close_overlay");
+		this.theme_gallery = jQuery("#theme_gallery");
+		this.background_gallery = jQuery("#background_gallery");
+		this.gallery_opener = jQuery(".open_gallery");
+		this.select_theme_btn = jQuery("#select_theme");
+		this.select_background_btn = jQuery("#select_background");
+		this.background_color_choice = jQuery(".color_choice");
+	},
+	
+	setup_data : function() {
+		jQuery.data(BusinessCard.select_theme_btn.get(0), 'gallery', 'theme');
+		jQuery.data(BusinessCard.select_background_btn.get(0), 'gallery', 'background');
 	},
 	
 	setup_order_contact_info : function() {
@@ -135,6 +138,56 @@ var BusinessCard = {
 				Alexis.toggle_overlay();
 			});
 		})
+	},
+	
+	setup_gallery_opener : function() {
+		BusinessCard.gallery_opener.bind('click', function() {
+			
+			var gallery = jQuery.data(jQuery(this).get(0), 'gallery');
+			
+			switch (gallery) {
+				case "theme":
+					BusinessCard.open_gallery(BusinessCard.theme_gallery)
+					break;
+				case "background":
+					BusinessCard.open_gallery(BusinessCard.background_gallery)
+					break;
+				default:
+					throw new Error("Undefined gallery")
+			}
+		})
+	},
+	
+	open_gallery : function(gallery) {
+		Alexis.toggle_overlay();
+		gallery.fadeIn(500)
+	},
+	
+	setup_overlay_close : function() {
+		this.close_overlay.bind('click', function() {
+			jQuery(this).parent().fadeOut(500, function() {
+				Alexis.toggle_overlay();
+			})
+		})
+	},
+	
+	setup_background_color_choice : function() {
+		this.background_color_choice.bind('click', function() {
+			var color = jQuery(this).attr("id");
+			
+			jQuery.ajax({
+				url: '/business_cards/' + BusinessCard.id + '/set_background_color',
+				type: 'POST',
+				data: {background_color: color},
+				success: function(response) {
+					if (response.success == 1) {
+						Alexis.show_alert_message("Your business card has been updated", true)
+					} else {
+						
+					}
+				}
+			})
+		})
 	}
 }
 
@@ -145,16 +198,15 @@ jQuery(function() {
 	BusinessCard.init();
 	
 	Theme.init();
-	
-	if (jQuery(".tooltip").size > 0) {
-		jQuery(".tooltip").tooltip({
-			showURL: false,
-			track: true,
-			delay: 0,
-			left: -40,
-			top: 20
-		})
-	}
-	
+		// 
+		// if (jQuery(".tooltip").size > 0) {
+		// 	jQuery(".tooltip").tooltip({
+		// 		showURL: false,
+		// 		track: true,
+		// 		delay: 0,
+		// 		left: -40,
+		// 		top: 20
+		// 	})
+		// }
 	
 })

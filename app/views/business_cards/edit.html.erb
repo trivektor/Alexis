@@ -6,7 +6,7 @@
 <h1 style="float:left"><%= @title_for_layout %></h1>
 
 <div class="options" style="float:right; text-align:right">
-  <a id="select_theme">Pick a theme</a> | <a id="preview_card" href="/<%= @business_card.url %>" target="_blank">View card</a>
+  <a id="select_background" class="open_gallery">Choose a background</a> | <a id="select_theme" class="open_gallery">Select a theme</a> | <a id="preview_card" href="/<%= @business_card.url %>" target="_blank">View card</a>
 </div>
 
 <div class="clearfloat"></div>
@@ -85,5 +85,7 @@
 <input type="hidden" id="business_card_id" value="<%= @business_card.id %>" />
 
 <%= render :partial => 'shared/theme_gallery' %>
+
+<%= render :partial => 'shared/background_gallery' %>
 
 <%= render :partial => 'shared/business_card_section_modal' %>

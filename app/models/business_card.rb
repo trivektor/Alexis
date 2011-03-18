@@ -3,6 +3,7 @@ class BusinessCard < ActiveRecord::Base
   # associations
   belongs_to :user
   has_one :business_card_theme, :dependent => :destroy
+  has_one :business_card_background, :dependent => :destroy
   has_one :business_card_information, :dependent => :destroy
   has_many :business_card_section_orders, :dependent => :destroy, :order => 'weight DESC'
   has_many :visitor_infos, :dependent => :destroy
@@ -15,7 +16,7 @@ class BusinessCard < ActiveRecord::Base
   validates_presence_of :title, :message => ' is required'
   
   def self.find_business_cards_by_user(user)
-    BusinessCard.where(:user_id => user.id, :status => :active).find(:all)
+    BusinessCard.where(:user_id => user.id, :status => :active).order('created_at DESC').find(:all)
   end
     
 end

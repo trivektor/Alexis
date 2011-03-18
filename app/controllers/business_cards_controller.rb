@@ -17,13 +17,11 @@ class BusinessCardsController < ApplicationController
     
     if @business_card.save
       
-      default_theme = Theme.get_default_theme
+      BusinessCardTheme.create_business_card_theme(@business_card)
       
-      @business_card.business_card_theme = BusinessCardTheme.new(:theme_id => default_theme.id)
-      @business_card.business_card_theme.save
+      BusinessCardInformation.create_business_card_information(@business_card)
       
-      @business_card.business_card_information = BusinessCardInformation.new(:business_card_id => @business_card.id)
-      @business_card.business_card_information.save
+      BusinessCardBackground.create_business_card_background(@business_card)
       
       BusinessCardSectionOrder.create_section_order(@business_card)
       
@@ -40,6 +38,8 @@ class BusinessCardsController < ApplicationController
     @business_card = find_business_card_by_id
     
     @themes = Theme.where(:status => :active).find(:all)
+    
+    @background_colors = BackgroundColor.where(:status => :active).find(:all)
     
     @section_order = @business_card.business_card_section_orders
     
@@ -73,8 +73,6 @@ class BusinessCardsController < ApplicationController
     
     render :layout => 'business_card'
     
-
-    
     #TODO: handle cases where the card requested does not exist
   end
   
@@ -94,6 +92,15 @@ class BusinessCardsController < ApplicationController
     else
       render :json => {:success => -1}
     end
+  end
+  
+  def set_background_color
+    
+    background = BusinessCardBackground.where(:business_card_id => params[:id]).first
+    
+    background.update_attributes(:background_color => params[:background_color], :which => :color)
+    
+    render :json => {:success => 1}
   end
   
   def stats

@@ -1,0 +1,12 @@
+<div id="background_gallery" class="gallery" style="display:none">
+  <%= image_tag 'closeOverlay.png', :class => :close_overlay %>
+  <div id="background_gallery_inner" class="gallery_inner">
+    <h2><%= image_tag 'backgroundColor.png', :alt => 'Background color' %></h2>
+    <div id="color_pallete" class="clearfix">
+      <% @background_colors.each do |color| %>
+        <div id="<%= color.hex_value %>" class="color_choice" style="background: #<%= color.hex_value %>">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

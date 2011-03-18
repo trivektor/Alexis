@@ -10,6 +10,16 @@
     'business_card',
   ] %>
   <%= csrf_meta_tag %>
+  
+  <% if @body_id == 'show_business_card' %>
+  <style>
+    body {
+      <% if (@business_card.business_card_background.which == 'color') %>
+        background:#<%= @business_card.business_card_background.background_color %>;
+      <% end %>
+    }
+  </style>
+  <% end %>
 </head>
 <body id="<%= @body_id %>">
 

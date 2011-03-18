@@ -1,10 +1,10 @@
-<div id="theme_gallery" style="display:none">
-  <div id="theme_gallery_inner">
+<div id="theme_gallery" class="gallery" style="display:none">
+  <%= image_tag 'closeOverlay.png', :class => :close_overlay %>
+  <div id="theme_gallery_inner" class="gallery_inner">
     <h2><%= image_tag 'selectTheme.png', :alt => 'Select a theme' %></h2>
     <% @themes.each do |theme| %>
       <%= image_tag "themes_gallery/#{theme.slug}.jpg", :class => 'theme_preview tooltip', :title => theme.title, :rel => theme.id %>
     <% end %>
-    <%= image_tag 'closeOverlay.png', :class => :close_overlay, :id => :close_theme_gallery %>
   </div>
   <div id="theme_gallery_message" style="margin-bottom:0; display:none"></div>
 </div>
