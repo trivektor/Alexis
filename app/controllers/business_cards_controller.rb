@@ -76,6 +76,10 @@ class BusinessCardsController < ApplicationController
     #TODO: handle cases where the card requested does not exist
   end
   
+  def delete
+    destroy
+  end
+  
   def destroy
     business_card = BusinessCard.find(params[:id])
     business_card.destroy

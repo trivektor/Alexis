@@ -16,6 +16,7 @@ Alexis::Application.routes.draw do
       post :set_background_color
       post :order_contact_info
       get :stats
+      get :delete
     end
     
     resources :business_card_section_orders do

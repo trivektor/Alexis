@@ -86,6 +86,7 @@ var BusinessCard = {
 		this.setup_gallery_opener();
 		this.setup_overlay_close();
 		this.setup_background_color_choice();
+		this.setup_delete();
 	},
 	
 	setup_selectors : function() {
@@ -101,11 +102,28 @@ var BusinessCard = {
 		this.select_theme_btn = jQuery("#select_theme");
 		this.select_background_btn = jQuery("#select_background");
 		this.background_color_choice = jQuery(".color_choice");
+		this.delete_btn = jQuery(".delete");
 	},
 	
 	setup_data : function() {
-		jQuery.data(BusinessCard.select_theme_btn.get(0), 'gallery', 'theme');
-		jQuery.data(BusinessCard.select_background_btn.get(0), 'gallery', 'background');
+		var select_theme_btn = BusinessCard.select_theme_btn.get(0);
+		if (select_theme_btn) {
+			jQuery.data(select_theme_btn, 'gallery', 'theme');
+		}
+		
+		var select_background_btn = BusinessCard.select_background_btn.get(0);
+		if (select_background_btn) {
+			jQuery.data(select_background_btn, 'gallery', 'background');
+		}
+	},
+	
+	setup_delete : function() {
+		this.delete_btn.bind('click', function(event) {
+			event.preventDefault();
+			if (confirm("Are you sure? This action cannot be undone")) {
+				window.location.href = jQuery(this).attr("href")
+			}
+		})
 	},
 	
 	setup_order_contact_info : function() {
