@@ -83,7 +83,6 @@ var BusinessCard = {
 		
 		this.id = this.business_card_id.val();
 		this.setup_order_contact_info();
-		this.setup_business_card_section_modal_close();
 		this.setup_gallery_opener();
 		this.setup_overlay_close();
 		this.setup_background_color_choice();
@@ -119,7 +118,12 @@ var BusinessCard = {
 					url: "/business_cards/" + BusinessCard.id + "/business_card_section_orders",
 					type: "POST",
 					data: order,
-					success: function() {
+					success: function(response) {
+						if (response.success == 1) {
+							Alexis.show_alert_message("Your business_card has been updated", true)
+						} else {
+							//TODO: add error handling
+						}
 						
 					}
 				})
@@ -129,14 +133,6 @@ var BusinessCard = {
 		this.order_contact_information_btn.click(function() {
 			Alexis.toggle_overlay();
 			BusinessCard.business_card_section_modal.show()
-		})
-	},
-	
-	setup_business_card_section_modal_close : function() {
-		this.close_business_card_section_modal_btn.click(function() {
-			BusinessCard.business_card_section_modal.fadeOut(500, function() {
-				Alexis.toggle_overlay();
-			});
 		})
 	},
 	
