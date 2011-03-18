@@ -15,10 +15,10 @@ ul {list-style:none}
 .clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 .clearfloat:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 
-.textbox {-moz-border-radius:5px; -moz-box-shadow: 0 3px 3px #706751 inset; background:#d9cdb2; border-color: -moz-use-text-color -moz-use-text-color #FFF8E8; border-style: none none solid; border-width: medium medium 2px;
-color: #453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; line-height:17px; margin: 5px 0 0; padding: 15px; width:600px;}
+.textbox {background:#d9cdb2; border-color: #fff8e8 #fff8e8 #fff8e8; border-style: none none solid; border-width: medium medium 2px; color:#453000; font-family: Helvetica,Arial,sans-serif; font-size:17px; 
+line-height:17px; margin: 5px 0 0; padding: 15px; width:600px; -moz-border-radius:5px; -moz-box-shadow:0 3px 3px #706751 inset; -webkit-border-radius:5px; -webkit-box-shadow:0 3px 3px #706751 inset;}
 
-.session_form {margin:60px auto; width:400px; padding:0 53px 50px; background:#fff; -moz-box-shadow:0 1px 2px #999; -moz-border-radius:5px;}
+.session_form {margin:60px auto; width:400px; padding:0 53px 50px; background:#fff; -moz-box-shadow:0 1px 2px #999; -moz-border-radius:5px; -webkit-box-shadow:0 1px 2px #999; -webkit-border-radius:5px;}
 .session_form_inner {margin-top:30px; background:#efe4ba; padding:32px; -moz-box-shadow:0 0 1px #444 inset; -moz-border-radius:5px;}
 .session_form .textbox {width:302px;}
 .session_form label {color:#444;}
@@ -83,12 +83,20 @@ position: fixed; top: 200px; width: 350px; z-index: 9999;}
 /* Home */
 
 /* Dashboard */
-#taskbar {background:#393939; padding:11px 30px}
+#taskbar {
+background:#333; /* normal */
+background:-moz-linear-gradient(center top, #333, #111); /* gecko */
+background:-webkit-gradient(linear,left top,left bottom,from(#333),to(#111)); /* webkit */
+background:transparent\9; /* ie */
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333',endColorstr='#111111'); padding:11px 30px} /* ie */
+#taskbar_user_image {width:20px; border:1px solid #fff; float:left}
 #taskbar_divider {background:url(../images/taskbarDivider.png) repeat-x; height:5px; border-bottom:1px solid #939393}
 #alexis {float:left;}
-#taskbar_nav {float:right; color:#fff !important; margin-top:3px}
-#taskbar_nav * {margin:0 5px;}
+#taskbar_nav {float:right; color:#fff !important}
 #taskbar_nav a {color:#fff;}
+#global_top_nav {float:left; margin-top:3px;}
+#global_top_nav li {float:left; padding:0 11px; border-right:1px solid #fff;}
+#global_top_nav li.last {border:0 !important}
 #stage {padding:30px;}
 #mycards_list {margin-bottom:20px}
 

@@ -1,10 +1,13 @@
 <div id="taskbar">
   <%= image_tag 'alexis.png', :alt => 'Alexis', :id => 'alexis' %>
   <div id="taskbar_nav">
-    <span>Logged in as <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></span> | 
-    <%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %> | 
-    <%= link_to 'Dashboard', dashboard_path %> | 
-    <%= link_to 'Logout', logout_url %>
+    <%= image_tag current_user.gravatar_url, :class => :user_image, :id => :taskbar_user_image %>
+    <ul id="global_top_nav">
+      <li>Logged in as <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></span></li>
+      <li><%= link_to 'Edit profile', edit_profile_path(current_user.profile) %></li>
+      <li><%= link_to 'My cards', dashboard_path %></li>
+      <li class="last"><%= link_to 'Logout', logout_url %></li>
+    </ul>
   </div>
   <div class="clearfloat"></div>
 </div>
