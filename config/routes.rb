@@ -30,6 +30,12 @@ Alexis::Application.routes.draw do
   
   
   resources :profiles, :only => [:show, :edit, :update]
+  
+  namespace :backbone do
+    resources :business_cards
+  end
+  
+  match '/stage' => 'stage#index'
     
   match '/dashboard' => 'dashboard#index'
   

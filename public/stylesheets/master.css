@@ -25,8 +25,8 @@ line-height:17px; margin: 5px 0 0; padding: 15px; width:600px; -moz-border-radiu
 .form_row {margin-bottom:35px;}
 
 .result_success {background:#dcf3b8; padding:10px; color:#83ab44; margin:20px 0; border:1px solid #83ab44;}
-.result_error {margin:20px 0}
-.result_error li {margin:10px 0; list-style:none; color:#b00000; font-size:12px;}
+.result_error {margin:20px 0; color:#b00000;}
+.result_error li {margin:10px 0; list-style:none; font-size:12px;}
 
 .item_list li {overflow:hidden; padding:4px 4px 4px 0; margin-bottom:15px}
 

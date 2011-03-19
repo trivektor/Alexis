@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title_for_layout %> - Alexis</title>
+  <%= stylesheet_link_tag [
+    'master',
+    ] %>
+  <%= javascript_include_tag [
+    'jquery',
+    'json2',
+    'underscore',
+    'backbone',
+    'backbone/application',
+    'backbone/controllers/business_cards',
+    'backbone/models/business_card',
+    'backbone/views/index',
+    'backbone/views/new',
+    'backbone/views/edit',
+    'backbone/views/errors',
+    ] %>
+  <%= csrf_meta_tag %>
+  <script>
+    $(function(){
+      App.init();
+    })
+  </script>
+</head>
+<body id="<%= @body_id %>">
+  
+<%= render :partial => 'shared/alert' %>
+
+<%= render :partial => 'shared/taskbar' %>
+
+<div id="stage">
+  <%= yield %>
+</div>
+
+<div id="overlay"></div>
+
+</body>
+</html>
