@@ -53,7 +53,13 @@ App.Views.Edit = Backbone.View.extend({
 			business_card_information[key] = '';
 		}
 		
-		var out = '<h1 id="form_header">Edit Business Card</h1> \
+		var out = '<div id="form_header"> \
+		<h1 style="float:left">Edit Business Card</h1> \
+		<div style="float: right; text-align: right;" class="options"> \
+		  <a class="open_gallery" id="select_background">Choose a background</a> | <a class="open_gallery" id="select_theme">Select a theme</a> | <a target="_blank" href="/trivektor2" id="preview_card">View card</a> \
+		</div> \
+		<div class="clearfloat"></div> \
+		</div> \
 		<form>\
 		<div class="vanilla_region"> \
 			<div class="white_region"> \
