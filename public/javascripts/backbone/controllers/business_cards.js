@@ -25,11 +25,14 @@ App.Controllers.BusinessCards = Backbone.Controller.extend({
 		var business_card = new BusinessCard({id: id});
 		business_card.fetch({
 			success: function(model, response) {
+				if (response.success == -1) {
+					window.location.hash = "#"
+					return;
+				}
 				new App.Views.Edit({model: business_card})
 			},
 			error: function() {
-				new Error({message: 'Could not find that business card'});
-				//window.location.hash = '#'
+				new App.Views.Errors({errors: response.errors});
 			}
 		})
 		

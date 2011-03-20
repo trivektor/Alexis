@@ -23,11 +23,13 @@ App.Views.New = Backbone.View.extend({
 				success: function(model, response) {
 					
 					if (response.success == 1) {
+						window.location.hash = '#';
+						
 						self.model = model;
 
 						self.delegateEvents();
 
-						window.location.hash = '#';
+						
 
 						Backbone.history.saveLocation('business_cards/' + model.business_card.id)
 					}
@@ -36,7 +38,7 @@ App.Views.New = Backbone.View.extend({
 					}
 				},
 				error: function() {
-					new App.Views.Error();
+					alert('An error occured while creating your card. Please try again later');
 				}
 			}
 		);

@@ -40,15 +40,20 @@ class Backbone::BusinessCardsController < ApplicationController
   
   def edit
     
+    if request.put?
+      update
+      return
+    end
+    
     @business_card = find_business_card_by_id
+    
+    return unless !@business_card.nil?
     
     @themes = Theme.where(:status => :active).find(:all)
     
     @background_colors = BackgroundColor.where(:status => :active).find(:all)
     
     @section_order = @business_card.business_card_section_orders
-    
-    #render :json => {@business_card.to_json, @business_card.business_card_information.to_json}
     
     render :json => @business_card.to_json(:include => :business_card_information)
     
@@ -59,17 +64,20 @@ class Backbone::BusinessCardsController < ApplicationController
     @business_card = find_business_card_by_id
     
     if @business_card.update_attributes(params[:business_card])
-      
-      flash[:notice] = 'Your business card has been updated'
-      redirect_to edit_business_card_path(@business_card)
-      
+      render :json => @business_card.to_json(:include => :business_card_information)
     else
-      render :action => :edit
+      render :json => {:errors => @business_card.errors, :success => -1}
     end
     
   end
   
   def show
+    
+    if request.get?
+      edit
+      return
+    end
+    
     @business_card = BusinessCard.find_by_url params[:url]
     
     @section_order = @business_card.business_card_section_orders
@@ -142,7 +150,12 @@ class Backbone::BusinessCardsController < ApplicationController
   end
   
   def find_business_card_by_id
-    BusinessCard.find(params[:id])
+    begin
+      BusinessCard.find(params[:id])
+    rescue
+      render :json => {:success => -1, :errors => {:details => 'No such card exists'}}
+      nil
+    end
   end
   
   def manipulatable?
