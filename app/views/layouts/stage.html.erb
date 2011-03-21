@@ -13,6 +13,7 @@
     'backbone/application',
     'backbone/controllers/business_cards',
     'backbone/models/business_card',
+    'backbone/collections/business_cards',
     'backbone/views/index',
     'backbone/views/new',
     'backbone/views/edit',
@@ -20,6 +21,7 @@
     'backbone/views/success',
     'stage'
     ] %>
+  <%= include_javascripts :app %>
   <%= csrf_meta_tag %>
   <script>
     $(function(){

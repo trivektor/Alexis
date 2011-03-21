@@ -1,0 +1,5 @@
+embed_assets: on
+
+javascripts:
+  app:
+    - app/views/**/*.jst

@@ -33,6 +33,7 @@ gem 'spectator-validates_email', :require => 'validates_email'
 gem 'browser'
 gem 'geokit'
 gem 'geokit-rails'
+gem 'jammit'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

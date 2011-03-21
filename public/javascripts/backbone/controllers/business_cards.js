@@ -8,14 +8,17 @@ App.Controllers.BusinessCards = Backbone.Controller.extend({
 	},
 	
 	index : function() {
-		$.getJSON('/backbone/business_cards', function(data) {
-			if (data) {
-				var business_cards = _(data).map(function(i) { return new BusinessCard(i) });
-				new App.Views.Index({ business_cards: business_cards });
-			} else {
-				new Error({ message: "Error loading business cards" })
+		
+		var business_cards = new App.Collections.BusinessCards();
+		
+		business_cards.fetch({
+			success: function() {
+				new App.Views.Index({ collection: business_cards })
+			}, 
+			error: function() {
+				
 			}
-		})
+		});
 	},
 	
 	newBusinessCard: function() {

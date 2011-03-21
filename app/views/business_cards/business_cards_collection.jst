@@ -1,0 +1,33 @@
+<h1>My cards</h1>
+<div id="mycards" class="vanilla_region">
+  <div class="white_region">
+    <div class="beige_region">
+      
+      <ul class="item_list" id="mycards_list">
+      
+        <% if (collection.models.length > 0) { %>
+          <% collection.each(function(item) { %>
+            <% business_card = item.attributes.business_card; %>
+            <li class="clearfix"> 
+              <div class="left"> 
+                <a title="View this card (in a new tab)" href="/<%= business_card.url %>" class="card_name tooltip"><%= business_card.title %></a> 
+                <div class="card_last_updated">Last updated on <%= business_card.updated_at %></div> 
+              </div> 
+              <div class="options"> 
+                 <a title="Delete" href="#business_cards/<%= business_card.id %>/delete" class="delete action_link tooltip"></a> 
+                 <a title="View this card" class="viewlive action_link tooltip" href="/<%= business_card.id %>" target="_blank"><%= business_card.url %></a> 
+                 <a title="Edit this card" class="edit action_link tooltip" href="#business_cards/<%= business_card.id %>">Edit</a>
+              </div> 
+            </li>
+          <% }); %>
+        <% } else { %>
+          <p style="margin-bottom:10px">You don't have any cards</p>
+        <% } %>
+        
+      </ul>
+      
+      <a class="red_btn" href="#new">Create new card</a>
+      
+    </div>
+  </div>
+</div>

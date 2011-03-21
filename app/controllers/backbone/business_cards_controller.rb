@@ -29,7 +29,8 @@ class Backbone::BusinessCardsController < ApplicationController
       
       BusinessCardSectionOrder.create_section_order(@business_card)
       
-      render :json => @business_card 
+      #render :json{:success => 1} => @business_card 
+      render :json => {:success => 1}
       
     else
       errors = {:errors => @business_card.errors, :success => -1}
