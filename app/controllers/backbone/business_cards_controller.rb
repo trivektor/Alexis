@@ -100,9 +100,7 @@ class Backbone::BusinessCardsController < ApplicationController
   def destroy
     business_card = BusinessCard.find(params[:id])
     business_card.destroy
-    flash[:notice] = 'The card has been deleted'
-    
-    redirect_to dashboard_path
+    render :json => {:success => 1}
   end
   
   def select_theme
