@@ -74,7 +74,7 @@ position: fixed; top: 200px; width: 350px; z-index: 9999;}
 
 #alert {background:#fff; padding:15px; font-size:20px; position:absolute; top:0; left:0; right:0; z-index:9001; text-align:center;}
 
-#overlay {background:#000000; height: 100%; left: 0; opacity: 0.4; position: fixed; top: 0; width: 100%; z-index: 8000;display:none;}
+#overlay {background:#000000; height: 100%; left: 0; opacity: 0.55; position: fixed; top: 0; width: 100%; z-index: 8000;display:none;}
 
 /* Signup */
 #home, #signup, #login {background:url(../images/noise.jpg) repeat;}

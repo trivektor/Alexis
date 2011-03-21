@@ -56,7 +56,7 @@ App.Views.Edit = Backbone.View.extend({
 		var out = '<div id="form_header"> \
 		<h1 style="float:left">Edit Business Card</h1> \
 		<div style="float: right; text-align: right;" class="options"> \
-		  <a class="open_gallery" rel="background" id="select_background">Choose a background</a> | <a class="open_gallery" id="select_theme">Select a theme</a> | <a target="_blank" href="/trivektor2" id="preview_card">View card</a> \
+		  <a class="open_gallery" rel="background" id="select_background">Choose a background</a> | <a class="open_gallery" id="select_theme">Select a theme</a> | <a target="_blank" href="/' + business_card.url + '" id="preview_card">View card</a> \
 		</div> \
 		<div class="clearfloat"></div> \
 		</div> \
@@ -110,7 +110,7 @@ App.Views.Edit = Backbone.View.extend({
 				<div id="theme_list"></div> \
 			</div> \
 		</div> \
-		<div id="background_gallery" class="gallery" style="display: none;"> \
+		<div id="background_color_gallery" class="gallery" style="display: none;"> \
 		  <img src="/images/closeOverlay.png" class="close_overlay" alt="Closeoverlay" /> \
 		  <div class="gallery_inner" id="background_gallery_inner"> \
 		    <h2><img src="/images/backgroundColor.png?1300418204" alt="Background color"></h2> \
@@ -137,7 +137,7 @@ App.Views.Edit = Backbone.View.extend({
 		
 		var select_background_btn = $("#select_background").get(0);
 		if (select_background_btn) {
-			$.data(select_background_btn, 'gallery', 'background');
+			$.data(select_background_btn, 'gallery', 'background_color');
 		}
 	},
 	
@@ -156,34 +156,60 @@ App.Views.Edit = Backbone.View.extend({
 					type: 'GET',
 					data: {},
 					success: function(response) {
+						
+						var html = '';
+						
 						if (objects == "themes") {
-							var html = '';
+							
 							for (var i=0; i < response.length; i++) {
-								var theme = response[i];
-								html += '<img title="Paint brush" src="/images/themes_gallery/' + theme.theme.slug + '.jpg" rel="' + theme.theme.id + '" class="theme_preview" alt="Paint_brush" />'
-								$("#theme_list").html(html)
-								
-								$(".theme_preview").click(function() {
-									
-									$.ajax({
-										type: "POST",
-										url: "/business_cards/" + model.attributes.business_card.id + "/select_theme",
-										data: {
-											theme_id: $(this).attr("rel")
-										},
-										success: function(response) {
-											if (response.success == 1) {
-												Alexis.show_alert_message("Your business card hass been updated", true)
-											} else {
-												//TODO: add error handling
-											}
-										}
-									})
-								})
-								
+								var theme = response[i].theme;
+								html += '<img title="Paint brush" src="/images/themes_gallery/' + theme.slug + '.jpg" rel="' + theme.id + '" class="theme_preview" alt="Paint_brush" />'
 							}
-						} else if (objects == "backgrounds") {
-							console.log("backgrounds")
+							
+							$("#theme_list").html(html)
+								
+							$(".theme_preview").click(function() {
+								$.ajax({
+									type: "POST",
+									url: "/business_cards/" + model.attributes.business_card.id + "/select_theme",
+									data: {
+										theme_id: $(this).attr("rel")
+									},
+									success: function(response) {
+										if (response.success == 1) {
+											Alexis.show_alert_message("Your business card hass been updated", true)
+										} else {
+											//TODO: add error handling
+										}
+									}
+								})
+							})
+								
+							
+						} else if (objects == "background_colors") {
+							
+							for (var i=0; i < response.length; i++) {
+								var background_color = response[i].background_color;
+								html += '<div style="background:#' + background_color.hex_value + '" class="color_choice" id="' + background_color.hex_value + '"></div>';
+							}
+								
+							$("#color_pallete").html(html);
+								
+							$(".color_choice").click(function() {
+								$.ajax({
+									url: '/business_cards/' + model.attributes.business_card.id + '/set_background_color',
+									type: 'POST',
+									data: {background_color: $(this).attr("id")},
+									success: function(response) {
+										if (response.success == 1) {
+											Alexis.show_alert_message("Your business card has been updated", true)
+										} else {
+
+										}
+									}
+								})
+							})
+							
 						}
 						gallery.fadeIn(500)
 					}
