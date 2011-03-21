@@ -56,7 +56,7 @@ App.Views.Edit = Backbone.View.extend({
 		var out = '<div id="form_header"> \
 		<h1 style="float:left">Edit Business Card</h1> \
 		<div style="float: right; text-align: right;" class="options"> \
-		  <a class="open_gallery" id="select_background">Choose a background</a> | <a class="open_gallery" id="select_theme">Select a theme</a> | <a target="_blank" href="/trivektor2" id="preview_card">View card</a> \
+		  <a class="open_gallery" rel="background" id="select_background">Choose a background</a> | <a class="open_gallery" id="select_theme">Select a theme</a> | <a target="_blank" href="/trivektor2" id="preview_card">View card</a> \
 		</div> \
 		<div class="clearfloat"></div> \
 		</div> \
@@ -103,10 +103,107 @@ App.Views.Edit = Backbone.View.extend({
 				</div> \
 			</div> \
 		</div> \
+		<div id="theme_gallery" class="gallery" style="display:none"> \
+			<img src="/images/closeOverlay.png" class="close_overlay" alt="Closeoverlay" /> \
+			<div id="theme_gallery_inner" class="gallery_inner"> \
+				<h2><img src="/images/selectTheme.png" alt="Select a theme" /></h2> \
+				<div id="theme_list"></div> \
+			</div> \
+		</div> \
+		<div id="background_gallery" class="gallery" style="display: none;"> \
+		  <img src="/images/closeOverlay.png" class="close_overlay" alt="Closeoverlay" /> \
+		  <div class="gallery_inner" id="background_gallery_inner"> \
+		    <h2><img src="/images/backgroundColor.png?1300418204" alt="Background color"></h2> \
+		    <div class="clearfix" id="color_pallete"> \
+		    </div> \
+		  </div> \
+		</div> \
 		</form>';
 			
 		$(this.el).html(out);
 		$("#stage").html($(this.el))
-	}
+		
+		this._setup_gallery_opener();
+		this._setup_data();
+		this._setup_overlay_close();
+		
+	},
+	
+	_setup_data : function() {
+		var select_theme_btn = $("#select_theme").get(0);
+		if (select_theme_btn) {
+			$.data(select_theme_btn, 'gallery', 'theme');
+		}
+		
+		var select_background_btn = $("#select_background").get(0);
+		if (select_background_btn) {
+			$.data(select_background_btn, 'gallery', 'background');
+		}
+	},
+	
+	_setup_gallery_opener : function() {
+		
+		var model = this.model;
+		
+		$(".open_gallery").bind('click', function() {
+			
+			function open_gallery(gallery, objects, that) {
+				$("#overlay").toggle();
+		
+				//TODO: optimization
+				$.ajax({
+					url: '/backbone/' + objects,
+					type: 'GET',
+					data: {},
+					success: function(response) {
+						if (objects == "themes") {
+							var html = '';
+							for (var i=0; i < response.length; i++) {
+								var theme = response[i];
+								html += '<img title="Paint brush" src="/images/themes_gallery/' + theme.theme.slug + '.jpg" rel="' + theme.theme.id + '" class="theme_preview" alt="Paint_brush" />'
+								$("#theme_list").html(html)
+								
+								$(".theme_preview").click(function() {
+									
+									$.ajax({
+										type: "POST",
+										url: "/business_cards/" + model.attributes.business_card.id + "/select_theme",
+										data: {
+											theme_id: $(this).attr("rel")
+										},
+										success: function(response) {
+											if (response.success == 1) {
+												Alexis.show_alert_message("Your business card hass been updated", true)
+											} else {
+												//TODO: add error handling
+											}
+										}
+									})
+								})
+								
+							}
+						} else if (objects == "backgrounds") {
+							console.log("backgrounds")
+						}
+						gallery.fadeIn(500)
+					}
+				})
+				
+			}
+			
+			var gallery = $.data($(this).get(0), 'gallery');
+			
+			open_gallery($("#" + gallery + "_gallery"), gallery + "s", this);
+			
+		})
+	},
+	
+	_setup_overlay_close : function() {
+		$(".close_overlay").bind('click', function() {
+			$(this).parent().fadeOut(500, function() {
+				$("#overlay").toggle();
+			})
+		})
+	},
 	
 })

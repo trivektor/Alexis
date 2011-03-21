@@ -33,6 +33,8 @@ Alexis::Application.routes.draw do
   
   namespace :backbone do
     resources :business_cards
+    resources :themes, :only => [:index]
+    resources :backgrounds: :only => [:index]
   end
   
   match '/stage' => 'stage#index'

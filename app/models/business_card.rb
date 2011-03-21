@@ -18,5 +18,13 @@ class BusinessCard < ActiveRecord::Base
   def self.find_business_cards_by_user(user)
     BusinessCard.where(:user_id => user.id, :status => :active).order('created_at DESC').find(:all)
   end
+  
+  def as_json(args={})
+    super(:methods => :formatted_created_at, :except => :date)
+  end
+  
+  def formatted_created_at
+    self.created_at.strftime("%b %d, %Y")
+  end
     
 end

@@ -17,12 +17,15 @@
     'backbone/views/new',
     'backbone/views/edit',
     'backbone/views/errors',
-    'backbone/views/success'
+    'backbone/views/success',
+    'stage'
     ] %>
   <%= csrf_meta_tag %>
   <script>
     $(function(){
       App.init();
+      
+      Alexis.init();
     })
   </script>
 </head>
