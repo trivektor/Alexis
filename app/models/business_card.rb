@@ -15,10 +15,6 @@ class BusinessCard < ActiveRecord::Base
   validates_uniqueness_of :url, :message => ' is not available'
   validates_presence_of :title, :message => ' is required'
   
-  def self.find_business_cards_by_user(user)
-    BusinessCard.where(:user_id => user.id, :status => :active).order('created_at DESC').find(:all)
-  end
-  
   def as_json(args={})
     super(:methods => :formatted_created_at, :except => :date)
   end

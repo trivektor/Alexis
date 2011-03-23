@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   gravtastic :size => 120
   
   has_one :profile, :dependent => :destroy
-  has_many :business_cards, :dependent => :destroy
+  has_many :business_cards, :dependent => :destroy, :order => 'created_at DESC'
   
   attr_accessor :first_name, :last_name
   

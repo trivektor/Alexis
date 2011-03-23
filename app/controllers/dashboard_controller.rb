@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   
   def index
     
-    @business_cards = BusinessCard.find_business_cards_by_user current_user
+    @business_cards = current_user.business_cards
     
   end
   

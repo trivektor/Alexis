@@ -7,7 +7,7 @@ class Backbone::BusinessCardsController < ApplicationController
   #before_filter :verify_ownership, :except => [:show, :new, :create]
   
   def index
-    render :json => BusinessCard.order("created_at DESC").all
+    render :json => current_user.business_cards
   end
   
   def new
